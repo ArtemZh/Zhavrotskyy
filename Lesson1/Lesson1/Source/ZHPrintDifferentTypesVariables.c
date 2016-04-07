@@ -34,4 +34,3 @@ void ZHPrintFloat (float numberf) {
 void ZHPrintDouble (double numberdouble) {
     printf(" %f \n", numberdouble);
 }
-

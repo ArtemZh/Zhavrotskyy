@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 
-
 void ZHPrintChar (char *text);
 void ZHPrintShort (short numbersh);
 void ZHPrintInt (int numberi);
