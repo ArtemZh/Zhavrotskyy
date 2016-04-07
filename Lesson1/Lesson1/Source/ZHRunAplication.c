@@ -1,5 +1,5 @@
 //
-//  main.c
+//  ZHRunAplication.c
 //  Lesson1
 //
 //  Created by Artem Zhavrotskiy on 07.04.16.
@@ -8,7 +8,4 @@
 
 #include "ZHRunAplication.h"
 
-int main(int argc, const char * argv[]) {
-    ZHRunAplication();
-        return 0;
-}
+

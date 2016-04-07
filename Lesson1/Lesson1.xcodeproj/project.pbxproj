@@ -11,6 +11,7 @@
 		AC03C1C01CB680240039DBC2 /* ZHPrintFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1BE1CB680240039DBC2 /* ZHPrintFunction.c */; };
 		AC03C1C31CB686830039DBC2 /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C11CB686830039DBC2 /* ZHPrintNumberFunction.c */; };
 		AC03C1C61CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C41CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c */; };
+		AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		AC03C1C21CB686830039DBC2 /* ZHPrintNumberFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPrintNumberFunction.h; sourceTree = "<group>"; };
 		AC03C1C41CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHPrintDifferentTypesVariables.c; sourceTree = "<group>"; };
 		AC03C1C51CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPrintDifferentTypesVariables.h; sourceTree = "<group>"; };
+		AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHRunAplication.c; sourceTree = "<group>"; };
+		AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunAplication.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 				AC03C1C21CB686830039DBC2 /* ZHPrintNumberFunction.h */,
 				AC03C1BE1CB680240039DBC2 /* ZHPrintFunction.c */,
 				AC03C1BF1CB680240039DBC2 /* ZHPrintFunction.h */,
+				AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */,
+				AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
 				AC03C1C01CB680240039DBC2 /* ZHPrintFunction.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c in Sources */,
+				AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */,
 				AC03C1C31CB686830039DBC2 /* ZHPrintNumberFunction.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
