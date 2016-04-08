@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-void ZHPrintNubderIncreas ();
-void ZHPrintNubderDecreas ();
+void ZHPrintNumbderIncreasing();
+void ZHPrintNumbderDecreasing();
 
 #endif /* ZHPrintNumberFunction_h */

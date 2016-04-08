@@ -9,28 +9,28 @@
 #include "ZHPrintDifferentTypesVariables.h"
 
 
-void ZHPrintChar (char *text) {
+void ZHPrintChar(char *text) {
     printf(" %s \n", text);
 }
 
-void ZHPrintShort (short numbersh) {
+void ZHPrintShort(short numbersh) {
     printf(" %i \n", numbersh);
 }
 
-void ZHPrintInt (int numberi) {
+void ZHPrintInt(int numberi) {
     printf(" %i \n", numberi);
 }
-void ZHPrintLong (long numberl) {
+void ZHPrintLong(long numberl) {
     printf(" %li \n", numberl);
 }
 
-void ZHPrintLongLong (long numberll) {
+void ZHPrintLongLong(long numberll) {
     printf(" %li \n", numberll);
 }
 
-void ZHPrintFloat (float numberf) {
+void ZHPrintFloat(float numberf) {
     printf(" %f \n", numberf);
 }
-void ZHPrintDouble (double numberdouble) {
+void ZHPrintDouble(double numberdouble) {
     printf(" %f \n", numberdouble);
 }

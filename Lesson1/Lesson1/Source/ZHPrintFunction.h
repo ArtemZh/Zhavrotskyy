@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 
-void ZHPrintHw ();
-void ZHPrintHwWithParents (const char *text);
-void ZHAddBlankLine ();
-void ZHAddMenyBlankLine ();
+void ZHPrintHw();
+void ZHPrintHwWithParents(const char *text);
+void ZHAddBlankLine();
+void ZHAddManyBlankLine();
 
 #endif /* ZHPrintFunction_h */

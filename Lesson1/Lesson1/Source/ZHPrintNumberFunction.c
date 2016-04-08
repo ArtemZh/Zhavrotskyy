@@ -9,10 +9,10 @@
 #include <stdio.h>
 #include "ZHPrintNumberFunction.h"
 
-void ZHPrintNubderIncreas (){
+void ZHPrintNumbderIncreasing(){
     puts("1234567890");
 }
 
-void ZHPrintNubderDecreas (){
+void ZHPrintNumbderDecreasing(){
     puts("0987654321");
 }

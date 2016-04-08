@@ -11,23 +11,23 @@
 
 
 //The function prints "Hello world"
-void ZHPrintHw (){
+void ZHPrintHw(){
     printf("Hello World \n");
 }
 
 //The function prints "hello" and transmitted it the string value
-void ZHPrintHwWithParents (const char *text){
+void ZHPrintHwWithParents(const char *text){
     printf("Hello  %s \n", text);
 }
 
 //The function adds a blank line
-void ZHAddBlankLine () {
+void ZHAddBlankLine() {
     printf("\n");
 }
 
 //The function adds the number of  n++ rows
 
-void ZHAddMenyBlankLine (int NumOfIter ) {
+void ZHAddManyBlankLine(int NumOfIter ) {
     for (int iteration = 0; iteration < NumOfIter; iteration++ );
     ZHAddBlankLine();
 }

@@ -11,12 +11,12 @@
 
 #include <stdio.h>
 
-void ZHPrintChar (char *text);
-void ZHPrintShort (short numbersh);
-void ZHPrintInt (int numberi);
-void ZHPrintLong (long numberl);
-void ZHPrintLongLong (long numberll);
-void ZHPrintFloat (float numberf);
-void ZHPrintDouble (double numberdouble);
+void ZHPrintChar(char *text);
+void ZHPrintShort(short numbersh);
+void ZHPrintInt(int numberi);
+void ZHPrintLong(long numberl);
+void ZHPrintLongLong(long numberll);
+void ZHPrintFloat(float numberf);
+void ZHPrintDouble(double numberdouble);
 
 #endif /* ZHPrintDifferentTypesVariables_h */
