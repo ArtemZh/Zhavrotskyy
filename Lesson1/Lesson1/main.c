@@ -6,9 +6,20 @@
 //  Copyright © 2016 Artem Zhavrotskiy. All rights reserved.
 //
 
+#include <stdbool.h>
+#include <string.h>
+#include <stdio.h>
+
+
 #include "ZHRunAplication.h"
+
+
+
+
+
 
 int main(int argc, const char * argv[]) {
     ZHRunAplication();
-        return 0;
+    
+    return 0;
 }

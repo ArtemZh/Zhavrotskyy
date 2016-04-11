@@ -9,12 +9,6 @@
 #ifndef ZHRunAplication_h
 #define ZHRunAplication_h
 
-#include "ZHPrintFunction.h"
-#include "ZHPrintNumberFunction.h"
-#include "ZHPrintDifferentTypesVariables.h"
-
-
-#include <stdio.h>
 
 void ZHRunAplication ();
 

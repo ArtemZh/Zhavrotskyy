@@ -11,9 +11,11 @@
 
 #include <stdio.h>
 
-void ZHPrintHw();
+void ZHPrintHello();
 void ZHPrintHwWithParents(const char *text);
 void ZHAddBlankLine();
 void ZHAddManyBlankLine();
+void ZHPrintPostAndPrefIncrement();
+void ZHPrintCharValue(const char *text);
 
 #endif /* ZHPrintFunction_h */

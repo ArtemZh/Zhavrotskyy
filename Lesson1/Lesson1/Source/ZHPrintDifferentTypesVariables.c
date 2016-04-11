@@ -13,24 +13,26 @@ void ZHPrintChar(char *text) {
     printf(" %s \n", text);
 }
 
-void ZHPrintShort(short numbersh) {
-    printf(" %i \n", numbersh);
+void ZHPrintShort(short shortValue) {
+    printf(" %i \n", shortValue);
 }
 
-void ZHPrintInt(int numberi) {
-    printf(" %i \n", numberi);
+void ZHPrintInt(int intValue) {
+    printf(" %i \n", intValue);
 }
-void ZHPrintLong(long numberl) {
-    printf(" %li \n", numberl);
-}
-
-void ZHPrintLongLong(long numberll) {
-    printf(" %li \n", numberll);
+void ZHPrintLong(long longValue) {
+    printf(" %li \n", longValue);
 }
 
-void ZHPrintFloat(float numberf) {
-    printf(" %f \n", numberf);
+void ZHPrintLongLong(long longLongValue) {
+    printf(" %li \n", longLongValue);
 }
-void ZHPrintDouble(double numberdouble) {
-    printf(" %f \n", numberdouble);
+
+void ZHPrintFloat(float floatValue) {
+    printf(" %f \n", floatValue);
 }
+
+void ZHPrintDouble(double dubleFloatValue) {
+    printf(" %f \n", dubleFloatValue);
+}
+
