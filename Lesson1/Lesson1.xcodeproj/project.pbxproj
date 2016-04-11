@@ -12,6 +12,7 @@
 		AC03C1C31CB686830039DBC2 /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C11CB686830039DBC2 /* ZHPrintNumberFunction.c */; };
 		AC03C1C61CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C41CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c */; };
 		AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */; };
+		AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		AC03C1C51CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPrintDifferentTypesVariables.h; sourceTree = "<group>"; };
 		AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHRunAplication.c; sourceTree = "<group>"; };
 		AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunAplication.h; sourceTree = "<group>"; };
+		AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHTask5.c; sourceTree = "<group>"; };
+		AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTask5.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				AC03C1C21CB686830039DBC2 /* ZHPrintNumberFunction.h */,
 				AC03C1BE1CB680240039DBC2 /* ZHPrintFunction.c */,
 				AC03C1BF1CB680240039DBC2 /* ZHPrintFunction.h */,
+				AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */,
+				AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */,
 				AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */,
 				AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */,
 			);
@@ -146,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */,
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
 				AC03C1C01CB680240039DBC2 /* ZHPrintFunction.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintDifferentTypesVariables.c in Sources */,

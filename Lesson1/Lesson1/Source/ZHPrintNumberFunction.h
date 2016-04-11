@@ -13,5 +13,7 @@
 
 void ZHPrintNumbderIncreasing();
 void ZHPrintNumbderDecreasing();
+int ZHIncrement(int value);
+int ZHDecrement(int value);
 
 #endif /* ZHPrintNumberFunction_h */
