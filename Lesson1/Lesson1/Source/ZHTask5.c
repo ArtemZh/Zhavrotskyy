@@ -70,12 +70,12 @@ void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
     
     
     
-    if(revenueDeputat == salary * 1000 * 1000) {
-        entity = embezzler;
-    } else if (revenueDeputat == salary * 120) {
-        entity = fair;
-    } else if (revenueDeputat == salary * 12) {
+    if(revenueDeputat < salary * 12  ) {
         entity = angel;
+    } else if (revenueDeputat < salary * 120) {
+        entity = fair;
+    } else if (revenueDeputat > salary * 1000 * 1000) {
+        entity = embezzler;
     } else {
         entity = dead;
     }
@@ -165,5 +165,5 @@ void ZHPrintVariablesSize() {
    
 }
 
-/// sdelat cherez enum
+/// sdelat cherez enum, add enum element
 
