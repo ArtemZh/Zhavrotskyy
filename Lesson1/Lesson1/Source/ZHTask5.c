@@ -67,8 +67,7 @@ void ZHBoolResultLikeMamaPapa2(int value1, int value2) {
 //} ZHDeputyEntity;
 
 void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
-    //    long salary = 90000000;
-    //    long selfProperty = 90000000000000;
+    
     
     
     if(revenueDeputat == salary * 1000 * 1000) {
@@ -102,7 +101,7 @@ void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
 
 void ZHArray() {
     int testArray[5] = {1, 2, 3, 4, 5};
-    int testArray2[5];
+    int testArray2[3];
     testArray2[0] = 1;
     testArray2[1] = 2;
     testArray2[2] = 3;
