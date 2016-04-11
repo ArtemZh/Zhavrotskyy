@@ -81,6 +81,7 @@ void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
     }
     
     switch (entity) {
+       // case ZHDeputyEntity[0]
         case embezzler:
             ZHPrintCharValue("Deputy embezzler");
             break;
@@ -157,10 +158,12 @@ int ZHMamaPapa (int value) {
         outPutStrung = "";
         status = -1;
     }
-    printf("%s\n", outPutStrung );
+    printf("%s", outPutStrung );
     return status;
 }
 void ZHPrintVariablesSize() {
    
 }
+
+/// sdelat cherez enum
 
