@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include "ZHPrintFunction.h"
+#include "ZHPrintTypesVariables.h"
 
 
 
@@ -102,7 +103,7 @@ void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
 
 void ZHArray() {
     int testArray[5] = {1, 2, 3, 4, 5};
-    int testArray2[3];
+    int testArray2[5];
     testArray2[0] = 1;
     testArray2[1] = 2;
     testArray2[2] = 3;
@@ -168,5 +169,45 @@ void ZHPrintVariablesSize() {
    
 }
 
+//void ZHTaskMamaPapa( int value) {
+//    char str1[] = "Mama";
+//    char str2[] = "Papa";
+//    
+//    printf("\n %s", str1);
+//    
+//    if (value % 3 == 0) {
+//        if (value % 5 == 0) {
+//            strcat(str1, str2);
+//        } else {
+//            if (value % 5 == 0) {
+//                strcpy(str1, str2);
+//            }
+//        }
+//    } else {
+//        strchr(str1, value);
+//    }
+//    
+//    ZHPrintCharValue(str1);
+//}
+
 /// sdelat cherez enum, add enum element
+
+char  ZHTaskMamaPapa2(int value) {
+    char str1[] = "Mama";
+    char str2[] = "Papa";
+    
+    if (value % 3 == 0) {
+        if (value % 5 == 0) {
+            strcat(str1, str2);
+        } else {
+            return str1;
+        }
+    } else {
+        if (value % 5 == 0) {
+            strcpy(str1, str2);
+        } else {
+            strchr(str1, value);
+        }
+    } return str1;
+}
 

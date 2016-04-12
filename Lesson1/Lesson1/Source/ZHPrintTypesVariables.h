@@ -6,8 +6,8 @@
 //  Copyright © 2016 Artem Zhavrotskiy. All rights reserved.
 //
 
-#ifndef ZHPrintDifferentTypesVariables_h
-#define ZHPrintDifferentTypesVariables_h
+#ifndef ZHPrintTypesVariables_h
+#define ZHPrintTypesVariables_h
 
 #include <stdio.h>
 
@@ -19,4 +19,4 @@ void ZHPrintLongLong(long longLongValue);
 void ZHPrintFloat(float floatValue);
 void ZHPrintDouble(double dubleFloatValue);
 
-#endif /* ZHPrintDifferentTypesVariables_h */
+#endif /* ZHPrintTypesVariables_h */
