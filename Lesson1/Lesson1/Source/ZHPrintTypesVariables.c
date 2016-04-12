@@ -6,7 +6,7 @@
 //  Copyright © 2016 Artem Zhavrotskiy. All rights reserved.
 //
 
-#include "ZHPrintDifferentTypesVariables.h"
+#include "ZHPrintTypesVariables.h"
 
 
 void ZHPrintChar(char *text) {

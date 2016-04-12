@@ -9,7 +9,7 @@
 #include "ZHRunAplication.h"
 #include "ZHPrintFunction.h"
 #include "ZHPrintNumberFunction.h"
-#include "ZHPrintDifferentTypesVariables.h"
+#include "ZHPrintTypesVariables.h"
 #include "ZHTask5.h"
 
 void ZHRunAplication() {
@@ -19,7 +19,7 @@ void ZHRunAplication() {
     ZHAddManyBlankLine(1);
     
     ZHPrintNumbderIncreasing();
-    ZHAddManyBlankLine (1);
+    ZHAddManyBlankLine(1);
     ZHPrintNumbderDecreasing();
     
     ZHPrintChar("text");
@@ -36,17 +36,20 @@ void ZHRunAplication() {
     
     ZHCheckTrueOrFalse(true);
     ZHBoolOperations(2, 5);
-    ZHBoolResultLikeMamaPapa (true);
-    ZHBoolResultLikeMamaPapa2 (2,5);
+    ZHBoolResultLikeMamaPapa(true);
+    ZHBoolResultLikeMamaPapa2(2, 5);
     
-    ZHDeputySalary(1,2,2);
+    ZHDeputySalary(1, 2, 2);
     
     ZHArray();
     ZHPrintString("aaaa",true);
     ZHPrintString("bbbbb",false);
     ZHGetString("123458");
     ZHGetString("12345\n");
-    ZHMamaPapa (15);
+ //   ZHMamaPapa (15);
+ //   ZHTaskMamaPapa(34);
+    ZHTaskMamaPapa2(1);
+    
     
      
 }

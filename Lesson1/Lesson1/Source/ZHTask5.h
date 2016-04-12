@@ -25,7 +25,12 @@ bool ZHBoolOperations(int value1, int value2);
 //bool boolResult;
 void ZHBoolResultLikeMamaPapa(bool result);
 void ZHBoolResultLikeMamaPapa2(int value1, int value2);
-typedef enum {embezzler, fair, angel, dead } ZHDeputyEntity;
+typedef enum {
+    embezzler,
+    fair,
+    angel,
+    dead
+} ZHDeputyEntity;
 void ZHDeputySalary();
 
 
@@ -41,5 +46,8 @@ struct ZHStructTypesVar {
 };
 
 void ZHPrintVariablesSize();
+
+void ZHTaskMamaPapa( int value);
+char ZHTaskMamaPapa2(int value);
 
 #endif /* ZHTask5_h */
