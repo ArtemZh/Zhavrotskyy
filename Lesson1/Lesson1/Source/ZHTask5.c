@@ -169,26 +169,26 @@ void ZHPrintVariablesSize() {
    
 }
 
-void ZHTaskMamaPapa( int value) {
-    char str1[] = "Mama";
-    char str2[] = "Papa";
-    
-    printf("\n %s", str1);
-    
-    if (value % 3 == 0) {
-        if (value % 5 == 0) {
-            strcat(str1, str2);
-        } else {
-            if (value % 5 == 0) {
-                strcpy(str1, str2);
-            }
-        }
-    } else {
-        strchr(str1, value);
-    }
-    
-    ZHPrintCharValue(str1);
-}
+//void ZHTaskMamaPapa( int value) {
+//    char str1[] = "Mama";
+//    char str2[] = "Papa";
+//    
+//    printf("\n %s", str1);
+//    
+//    if (value % 3 == 0) {
+//        if (value % 5 == 0) {
+//            strcat(str1, str2);
+//        } else {
+//            if (value % 5 == 0) {
+//                strcpy(str1, str2);
+//            }
+//        }
+//    } else {
+//        strchr(str1, value);
+//    }
+//    
+//    ZHPrintCharValue(str1);
+//}
 
 /// sdelat cherez enum, add enum element
 
