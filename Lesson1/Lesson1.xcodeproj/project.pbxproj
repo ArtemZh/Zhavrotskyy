@@ -13,6 +13,7 @@
 		AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */; };
 		AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */; };
 		AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */; };
+		AC54D56B1CBFFB3C00124152 /* ZHMacrosOutputFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC54D5691CBFFB3C00124152 /* ZHMacrosOutputFunction.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunAplication.h; sourceTree = "<group>"; };
 		AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHTask5.c; sourceTree = "<group>"; };
 		AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTask5.h; sourceTree = "<group>"; };
+		AC54D5691CBFFB3C00124152 /* ZHMacrosOutputFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHMacrosOutputFunction.c; sourceTree = "<group>"; };
+		AC54D56A1CBFFB3C00124152 /* ZHMacrosOutputFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHMacrosOutputFunction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				AC03C1BF1CB680240039DBC2 /* ZHPrintFunction.h */,
 				AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */,
 				AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */,
+				AC54D5691CBFFB3C00124152 /* ZHMacrosOutputFunction.c */,
+				AC54D56A1CBFFB3C00124152 /* ZHMacrosOutputFunction.h */,
 				AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */,
 				AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */,
 			);
@@ -152,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */,
+				AC54D56B1CBFFB3C00124152 /* ZHMacrosOutputFunction.c in Sources */,
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
 				AC03C1C01CB680240039DBC2 /* ZHPrintFunction.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */,

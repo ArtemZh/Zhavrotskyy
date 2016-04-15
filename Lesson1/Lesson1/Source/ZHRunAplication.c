@@ -14,7 +14,7 @@
 
 void ZHRunAplication() {
     ZHPrintHello();
-    ZHPrintHwWithParents("Papa");
+    ZHPrintHelloWorldWithParents("Papa");
     ZHAddBlankLine();
     ZHAddManyBlankLine(1);
     
@@ -39,17 +39,17 @@ void ZHRunAplication() {
     ZHBoolResultLikeMamaPapa(true);
     ZHBoolResultLikeMamaPapa2(2, 5);
     
-    ZHDeputySalary(1, 2, 2);
-    
     ZHArray();
     ZHPrintString("aaaa",true);
     ZHPrintString("bbbbb",false);
     ZHGetString("123458");
     ZHGetString("12345\n");
+    
+    ZHDeputySalary( 1, 144444444440);
+    ZHPrintParentsConditionAndValue (14);
+    
  //   ZHMamaPapa (15);
  //   ZHTaskMamaPapa(34);
-    ZHTaskMamaPapa2(1);
-    
-    
-     
+//    ZHTaskMamaPapa2(1);
+    printf("\n");
 }

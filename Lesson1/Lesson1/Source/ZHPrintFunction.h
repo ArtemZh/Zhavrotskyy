@@ -11,10 +11,16 @@
 
 #include <stdio.h>
 
+//The function prints "Hello world"
 void ZHPrintHello();
-void ZHPrintHwWithParents(const char *text);
+//The function prints "hello" and transmitted it the string value
+void ZHPrintHelloWorldWithParents(const char *text);
+void ZHPrintMama();
+void ZHPrintPapa();
+//The function adds a blank line
 void ZHAddBlankLine();
-void ZHAddManyBlankLine();
+//The function adds the number of  n++ rows
+void ZHAddManyBlankLine(int countBlankLine);
 void ZHPrintPostAndPrefIncrement();
 void ZHPrintCharValue(const char *text);
 

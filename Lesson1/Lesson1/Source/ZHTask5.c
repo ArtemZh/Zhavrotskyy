@@ -60,44 +60,45 @@ void ZHBoolResultLikeMamaPapa2(int value1, int value2) {
 }
 
 //5.8
-//typedef enum {
-//    embezzler,
-//    fair,
-//    angel,
-//    dead
-//} ZHDeputyEntity;
-
-void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
-    
-    
-    
-    if(revenueDeputat < salary * 12  ) {
-        entity = angel;
-    } else if (revenueDeputat < salary * 120) {
-        entity = fair;
-    } else if (revenueDeputat > salary * 1000 * 1000) {
-        entity = embezzler;
-    } else {
-        entity = dead;
-    }
+void ZHPrintDeputyState(ZHDeputyEntity entity) {
     
     switch (entity) {
-       // case ZHDeputyEntity[0]
-        case embezzler:
+        case DeputyEmbezzler:
             ZHPrintCharValue("Deputy embezzler");
             break;
-        case fair:
+        case DeputyFair:
             ZHPrintCharValue("Deputy fair");
             break;
-        case angel:
+        case DeputyAngel:
             ZHPrintCharValue("Deputy angel");
             break;
-        case dead:
+        case DeputyDead:
         default:
             ZHPrintCharValue("Deputy dead");
             break;
     }
 }
+
+
+
+void ZHDeputySalary(long salary, long revenueDeputat ) {
+    
+    ZHDeputyEntity entity;
+    
+    if(revenueDeputat < salary * 12  ) {
+        entity = DeputyDead;
+    } else if (revenueDeputat < salary * 120) {
+        entity = DeputyAngel;
+    } else if (revenueDeputat < salary * 1000 * 1000) {
+        entity = DeputyFair;
+    } else {
+        entity = DeputyEmbezzler;
+    }
+   // printf("%c aaa", entity);
+    ZHPrintDeputyState(entity);
+        
+}
+
 
 // 5.10
 
@@ -143,7 +144,7 @@ void ZHGetString(char * textArray) {
 
 
 
-int ZHMamaPapa (int value) {
+int ZHMamaPapa(int value) {
     char * outPutStrung = "";
     int status = 0;
     if (value % 15 == 0) {
@@ -169,45 +170,44 @@ void ZHPrintVariablesSize() {
    
 }
 
-//void ZHTaskMamaPapa( int value) {
+ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
+   // ICPrintType printType = ICPrintedNothig;
+    ZHPrintParentsConditions printCondition = ZHPassValueCondition;
+    if (0 == value % 3) {
+        printCondition += ZHMamaCondition;
+        ZHPrintMama();
+    }
+    
+    if (0 == value % 5) {
+        printCondition += ZHPapaCondition;
+        ZHPrintPapa();
+    }
+    
+    if (printCondition == 0) {
+        ZHPrintInt(value);
+    }
+    
+    return printCondition;
+}
+
+
+
+//char  ZHTaskMamaPapa2(int value) {
 //    char str1[] = "Mama";
 //    char str2[] = "Papa";
-//    
-//    printf("\n %s", str1);
 //    
 //    if (value % 3 == 0) {
 //        if (value % 5 == 0) {
 //            strcat(str1, str2);
 //        } else {
-//            if (value % 5 == 0) {
-//                strcpy(str1, str2);
-//            }
+//            return str1;
 //        }
 //    } else {
-//        strchr(str1, value);
-//    }
-//    
-//    ZHPrintCharValue(str1);
+//        if (value % 5 == 0) {
+//            strcpy(str1, str2);
+//        } else {
+//            strchr(str1, value);
+//        }
+//    } return str1;
 //}
-
-/// sdelat cherez enum, add enum element
-
-char  ZHTaskMamaPapa2(int value) {
-    char str1[] = "Mama";
-    char str2[] = "Papa";
-    
-    if (value % 3 == 0) {
-        if (value % 5 == 0) {
-            strcat(str1, str2);
-        } else {
-            return str1;
-        }
-    } else {
-        if (value % 5 == 0) {
-            strcpy(str1, str2);
-        } else {
-            strchr(str1, value);
-        }
-    } return str1;
-}
 
