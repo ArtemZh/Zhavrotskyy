@@ -171,7 +171,7 @@ void ZHPrintVariablesSize() {
 }
 
 ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
-   // ICPrintType printType = ICPrintedNothig;
+
     ZHPrintParentsConditions printCondition = ZHPassValueCondition;
     if (0 == value % 3) {
         printCondition += ZHMamaCondition;
