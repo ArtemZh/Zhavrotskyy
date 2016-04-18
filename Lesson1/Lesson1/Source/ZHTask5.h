@@ -47,16 +47,16 @@ ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value);
 
 
 
-struct ZHStructTypesVar {
-    char valueChar;
-    short valueShort;
-    int valueInt;
-    long valueLong;
-    long long valueLongLong;
-    float valueFloat;
-    double valueDouble;
-    long double valueLongDouble;
-};
+//struct ZHStructTypesVar {
+//    char valueChar;
+//    short valueShort;
+//    int valueInt;
+//    long valueLong;
+//    long long valueLongLong;
+//    float valueFloat;
+//    double valueDouble;
+//    long double valueLongDouble;
+//};
 
 void ZHPrintVariablesSize();
 

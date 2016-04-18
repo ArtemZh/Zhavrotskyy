@@ -9,18 +9,18 @@
 #include <stdio.h>
 #include "ZHPrintNumberFunction.h"
 
-void ZHPrintNumbderIncreasing() {
+void ZHPrintNumberIncreasing() {
     puts("1234567890");
 }
 
-void ZHPrintNumbderDecreasing() {
+void ZHPrintNumberDecreasing() {
     puts("0987654321");
 }
 
 int  ZHIncrement(int value) {
-    return value = value + 1;
+    return value += 1;
 }
 
 int ZHDecrement(int value) {
-    return value = value - 1;
+    return value -=1;
 }

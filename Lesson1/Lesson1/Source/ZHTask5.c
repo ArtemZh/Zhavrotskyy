@@ -83,7 +83,7 @@ void ZHPrintDeputyState(ZHDeputyEntity entity) {
 
 void ZHDeputySalary(long salary, long revenueDeputat ) {
     
-    ZHDeputyEntity entity;
+    ZHDeputyEntity entity = 0;
     
     if(revenueDeputat < salary * 12  ) {
         entity = DeputyDead;
@@ -171,7 +171,6 @@ void ZHPrintVariablesSize() {
 }
 
 ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
-
     ZHPrintParentsConditions printCondition = ZHPassValueCondition;
     if (0 == value % 3) {
         printCondition += ZHMamaCondition;

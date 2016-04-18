@@ -27,13 +27,13 @@ void ZHPrintPapa() {
     printf("Papa");
 }
 
-void ZHAddBlankLine() {
+void ZHPrintBlankLine() {
     printf("\n");
 }
 
-void ZHAddManyBlankLine(int countBlankLine ) {
-    for (int iteration = 0; iteration < countBlankLine; iteration++ ) {
-    ZHAddBlankLine();
+void ZHPrintBlankLines(int count) {
+    for (int iteration = 0; iteration < count; iteration++ ) {
+    ZHPrintBlankLine();
     }
 }
 
@@ -44,10 +44,5 @@ void ZHPrintCharValue(const char *text) {
 void ZHPrintPostAndPrefIncrement() {
     int value  = 10;
     int value1  = 10;
-    int result = 0;
-    int result1 = 0;
-    result = value++;
-    result1 = ++value1;
-    printf("%d %d \n", result , value);
-    printf("%d %d \n", result1 , value1);
+    printf("%d %d \n %d %d", value+1 , value, 1+value1 , value1 );
 }

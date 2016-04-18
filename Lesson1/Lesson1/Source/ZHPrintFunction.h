@@ -18,9 +18,9 @@ void ZHPrintHelloWorldWithParents(const char *text);
 void ZHPrintMama();
 void ZHPrintPapa();
 //The function adds a blank line
-void ZHAddBlankLine();
+void ZHPrintBlankLine();
 //The function adds the number of  n++ rows
-void ZHAddManyBlankLine(int countBlankLine);
+void ZHPrintBlankLines(int count);
 void ZHPrintPostAndPrefIncrement();
 void ZHPrintCharValue(const char *text);
 

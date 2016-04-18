@@ -11,16 +11,18 @@
 #include "ZHPrintNumberFunction.h"
 #include "ZHPrintTypesVariables.h"
 #include "ZHTask5.h"
+#include "ZHMacrosOutputFunction.h"
+#include "ZHStructuresTest.h"
 
 void ZHRunAplication() {
     ZHPrintHello();
     ZHPrintHelloWorldWithParents("Papa");
-    ZHAddBlankLine();
-    ZHAddManyBlankLine(1);
+    ZHPrintBlankLine();
+    ZHPrintBlankLines(1);
     
-    ZHPrintNumbderIncreasing();
-    ZHAddManyBlankLine(1);
-    ZHPrintNumbderDecreasing();
+    ZHPrintNumberIncreasing();
+    ZHPrintBlankLines(1);
+    ZHPrintNumberDecreasing();
     
     ZHPrintChar("text");
     ZHPrintShort(1);
@@ -52,4 +54,12 @@ void ZHRunAplication() {
  //   ZHTaskMamaPapa(34);
 //    ZHTaskMamaPapa2(1);
     printf("\n");
+    
+    ZHMacrosTest(1, 'a');
+    ZHPrintSizeOfStructure();
+    ZHPrintBiraryOfInputValue(5);
+    ZHPrintBiraryDependOfTypeProccesor(1, 0);
+   
+    
+    
 }

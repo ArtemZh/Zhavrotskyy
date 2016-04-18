@@ -13,11 +13,6 @@
 
 #include "ZHRunAplication.h"
 
-
-
-
-
-
 int main(int argc, const char * argv[]) {
     ZHRunAplication();
     
