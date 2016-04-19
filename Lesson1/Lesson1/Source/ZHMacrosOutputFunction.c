@@ -15,7 +15,6 @@ ZHMacrosPrintValueWithType(char, c);
 void ZHMacrosTest(int intValue, char charValue) {
     ZHOutputValue(int, intValue);
     ZHOutputValue(char, charValue);
-
     ZHMacrosPrintSizeOfValue(int);
     ZHMacrosPrintSizeOfValue(char);
     ZHMacrosPrintSizeOfValue(long long);

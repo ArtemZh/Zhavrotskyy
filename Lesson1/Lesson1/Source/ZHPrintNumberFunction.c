@@ -18,9 +18,9 @@ void ZHPrintNumberDecreasing() {
 }
 
 int  ZHIncrement(int value) {
-    return value += 1;
+    return value + 1;
 }
 
 int ZHDecrement(int value) {
-    return value -=1;
+    return value - 1;
 }

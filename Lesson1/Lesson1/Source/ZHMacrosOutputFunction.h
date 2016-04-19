@@ -32,11 +32,8 @@ type value; \
 printf("Size of "#type" value = %lu \n", sizeof(value)); \
 } while (0);
 
-
 void ZHOutput_int(int value);
 void ZHOutput_char(char value);
 void ZHMacrosTest(int intValue, char charValue);
-
-
 
 #endif /* ZHMacrosOutputFunction_h */

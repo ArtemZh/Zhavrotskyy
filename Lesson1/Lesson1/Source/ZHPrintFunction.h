@@ -13,12 +13,15 @@
 
 //The function prints "Hello world"
 void ZHPrintHello();
+
 //The function prints "hello" and transmitted it the string value
 void ZHPrintHelloWorldWithParents(const char *text);
 void ZHPrintMama();
 void ZHPrintPapa();
+
 //The function adds a blank line
 void ZHPrintBlankLine();
+
 //The function adds the number of  n++ rows
 void ZHPrintBlankLines(int count);
 void ZHPrintPostAndPrefIncrement();

@@ -14,8 +14,6 @@
 #include "ZHPrintFunction.h"
 #include "ZHPrintTypesVariables.h"
 
-
-
 // 5.1
 // true && true = true;
 // true && false = false;
@@ -50,6 +48,7 @@ bool ZHBoolOperations(int value1, int value2) {
 void ZHBoolResultLikeMamaPapa(bool result) {
    result ? ZHPrintCharValue("Mama") : ZHPrintCharValue("Papa");
 }
+
 // 5.5
 void ZHBoolResultLikeMamaPapa2(int value1, int value2) {
     if(value1 < value2) {
@@ -66,12 +65,15 @@ void ZHPrintDeputyState(ZHDeputyEntity entity) {
         case DeputyEmbezzler:
             ZHPrintCharValue("Deputy embezzler");
             break;
+            
         case DeputyFair:
             ZHPrintCharValue("Deputy fair");
             break;
+            
         case DeputyAngel:
             ZHPrintCharValue("Deputy angel");
             break;
+            
         case DeputyDead:
         default:
             ZHPrintCharValue("Deputy dead");
@@ -79,12 +81,8 @@ void ZHPrintDeputyState(ZHDeputyEntity entity) {
     }
 }
 
-
-
 void ZHDeputySalary(long salary, long revenueDeputat ) {
-    
     ZHDeputyEntity entity = 0;
-    
     if(revenueDeputat < salary * 12  ) {
         entity = DeputyDead;
     } else if (revenueDeputat < salary * 120) {
@@ -94,14 +92,11 @@ void ZHDeputySalary(long salary, long revenueDeputat ) {
     } else {
         entity = DeputyEmbezzler;
     }
-   // printf("%c aaa", entity);
     ZHPrintDeputyState(entity);
         
 }
 
-
 // 5.10
-
 void ZHArray() {
     int testArray[5] = {1, 2, 3, 4, 5};
     int testArray2[5];
@@ -120,9 +115,6 @@ void ZHArray() {
 }
 //5.12
 void ZHPrintString(char * textArray, bool termination) {
-   // char text[5] = "Hello";
-    //int textSize = sizeof(textArray);
-    //printf("%d", textsize);
     int textSize = (int)strlen(textArray);
     printf("%d \n", textSize);
     for ( int iterator = 0; iterator < textSize; iterator++) {
@@ -135,15 +127,10 @@ void ZHPrintString(char * textArray, bool termination) {
 void ZHGetString(char * textArray) {
     int textSize = (int)strlen(textArray);
     char lastChar = textArray[textSize - 1];
-//    if (lastChar == '\n') printf("\n Length of String is %d \n", textSize);
-//    else printf("\n String is not terminated \n");
     lastChar == '\n' ? printf("\n Length of String is %d \n", textSize):printf("\n String is not terminated \n");
 }
 
 //5.19
-
-
-
 int ZHMamaPapa(int value) {
     char * outPutStrung = "";
     int status = 0;
@@ -167,7 +154,6 @@ int ZHMamaPapa(int value) {
     return status;
 }
 void ZHPrintVariablesSize() {
-   
 }
 
 ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
@@ -188,25 +174,3 @@ ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
     
     return printCondition;
 }
-
-
-
-//char  ZHTaskMamaPapa2(int value) {
-//    char str1[] = "Mama";
-//    char str2[] = "Papa";
-//    
-//    if (value % 3 == 0) {
-//        if (value % 5 == 0) {
-//            strcat(str1, str2);
-//        } else {
-//            return str1;
-//        }
-//    } else {
-//        if (value % 5 == 0) {
-//            strcpy(str1, str2);
-//        } else {
-//            strchr(str1, value);
-//        }
-//    } return str1;
-//}
-

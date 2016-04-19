@@ -14,29 +14,20 @@ void ZHPrintSizeOfStructure(void) {
     printf("Size of structure ZHStructTypesVarOptimized - %lu \n",sizeof(ZHStructTypesVarOptimized));
 }
 
-
-
 void ZHPrintBiraryOfInputValue(uint8_t charValue) {
     printf("{ ");
     for (uint8_t i = 8; i > 0; i--) {
-        uint8_t printShiftValue = charValue >> (i -1 );
-        if (printShiftValue & 1) {
-            printf("1 ");
-        } else {
-            printf("0 ");
-        }
+        uint8_t index = endianness ? i :
     }
     
     printf("}\n");
-    
     printf("\n");
-    
 }
 
-void ZHPrintBiraryDependOfTypeProccesor(uint8_t charValue, ZHProcessorType proc ) {
+void ZHPrintBiraryDependOfTypeProccesor(uint8_t charValue, ZHEndianness endianness ) {
     printf("{ ");
     for (uint8_t i = 8; i > 0; i--) {
-        if (proc == ZHProcessorBigEndian ) {
+        if (endianness == ZHProcessorBigEndian ) {
             uint8_t printShiftValue = charValue >> (i -1 );
             if (printShiftValue & 1) {
                 printf("1 ");

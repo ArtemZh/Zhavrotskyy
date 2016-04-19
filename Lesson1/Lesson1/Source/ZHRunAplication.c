@@ -50,9 +50,6 @@ void ZHRunAplication() {
     ZHDeputySalary( 1, 144444444440);
     ZHPrintParentsConditionAndValue (14);
     
- //   ZHMamaPapa (15);
- //   ZHTaskMamaPapa(34);
-//    ZHTaskMamaPapa2(1);
     printf("\n");
     
     ZHMacrosTest(1, 'a');

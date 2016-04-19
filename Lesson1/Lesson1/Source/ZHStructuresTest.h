@@ -14,9 +14,9 @@
 
 
 typedef enum {
-    ZHProcessorBigEndian       = 1,
-    ZHProcessorLittleEndian    = 0
-} ZHProcessorType;
+    ZHProcessorBigEndian,
+    ZHProcessorLittleEndian
+} ZHEndianness;
 
 struct ZHStructTypesVar {
     char valueChar;             //8
@@ -42,16 +42,16 @@ struct ZHStructTypesVar {
 };
 
 struct ZHStructTypesVarOptimized {
-    char valueChar;             //8
-    long valueLong;             //8
     long long valueLongLong;    //8
-    float valueFloat;           //8
     double valueDouble;         //8
     long double valueLongDouble;//8
+    float valueFloat;           //4
+    long valueLong;             //4
     int valueInt;               //4
     short valueShort1;          //4
     short valueShort2;          //4
     short valueShort3;          //4
+    char valueChar;             //1
     union {
         struct boolStructure1 {
             bool boolValue1;
@@ -69,7 +69,7 @@ typedef struct ZHStructTypesVarOptimized ZHStructTypesVarOptimized;
 void ZHPrintSizeOfStructure(void);
 
 void ZHPrintBiraryOfInputValue(uint8_t charValue);
-void ZHPrintBiraryDependOfTypeProccesor(uint8_t charValue, ZHProcessorType proc );
+void ZHPrintBiraryDependOfTypeProccesor(uint8_t charValue, ZHEndianness endianness );
 
 
 #define ZHMacrosStructureShiftOutput(typeValue) \
