@@ -124,11 +124,17 @@ void ZHPrintString(char * textArray, bool termination) {
 }
 
 // 5.13
-void ZHGetString(char * textArray) {
+void ZHGetString(char *textArray) {
     int textSize = (int)strlen(textArray);
-    char lastChar = textArray[textSize - 1];
-    lastChar == '\n' ? printf("\n Length of String is %d \n", textSize):printf("\n String is not terminated \n");
+    for( int i = 0; i <textSize; i++) {
+        printf("%c", textArray[i] );
+//  textArray[i] == '\0' ? break printf("\n Length of String is %d \n", textSize):printf("\n String is not null terminated \n");
+//    char lastChar = textArray[textSize - 1];
+//    lastChar == '\n' ? printf("\n Length of String is %d \n", textSize):printf("\n String is not null terminated \n");
+    }
 }
+
+
 
 //5.19
 int ZHMamaPapa(int value) {
