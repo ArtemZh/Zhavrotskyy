@@ -15,9 +15,11 @@ void ZHPrintSizeOfStructure(void) {
 }
 
 void ZHPrintBiraryOfInputValue(uint8_t charValue) {
+    const uint8_t bitCount = 8;
+    ZHEndianness endianness;
     printf("{ ");
-    for (uint8_t i = 8; i > 0; i--) {
-        uint8_t index = endianness ? i :
+    for (uint8_t i = 0; i < bitCount; i++) {
+        uint8_t index = endianness ? i : bitCount - (i+1);
     }
     
     printf("}\n");
