@@ -31,13 +31,14 @@ struct ZHStructTypesVar {
     long double valueLongDouble;//8
     union {
         struct boolStructure {
-            bool boolValue1;
-            bool boolValue2;
-            bool boolValue3;
-            bool boolValue4;
-            bool boolValue5;
-            bool boolValue6;
+            bool boolValue1 :1;
+            bool boolValue2 :1;
+            bool boolValue3 :1;
+            bool boolValue4 :1;
+            bool boolValue5 :1;
+            bool boolValue6 :1;
         } flags;
+        char bitfild;
     };
 };
 

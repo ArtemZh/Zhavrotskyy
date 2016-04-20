@@ -124,16 +124,16 @@ void ZHPrintString(char * textArray, bool termination) {
 }
 
 // 5.13
-void ZHGetString(char *textArray) {
-    int textSize = (int)strlen(textArray);
-    for( int i = 0; i <textSize; i++) {
-        printf("%c", textArray[i] );
-//  textArray[i] == '\0' ? break printf("\n Length of String is %d \n", textSize):printf("\n String is not null terminated \n");
-//    char lastChar = textArray[textSize - 1];
-//    lastChar == '\n' ? printf("\n Length of String is %d \n", textSize):printf("\n String is not null terminated \n");
-    }
+void ZHGetString(char *receivedString) {
+    unsigned long lenghtString = strlen(receivedString);
+    ZHPrintNullTerminatedString(receivedString, lenghtString);
 }
 
+void ZHPrintNullTerminatedString(char *receivedString, unsigned long lenghtString) {
+    for(int iterator = 0; iterator < lenghtString; iterator++) {
+        printf("%c", receivedString[iterator]);
+    }
+}
 
 
 //5.19
@@ -156,9 +156,11 @@ int ZHMamaPapa(int value) {
         outPutStrung = "";
         status = -1;
     }
+    
     printf("%s", outPutStrung );
     return status;
 }
+
 void ZHPrintVariablesSize() {
 }
 
@@ -174,7 +176,7 @@ ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
         ZHPrintPapa();
     }
     
-    if (printCondition == 0) {
+    if (printCondition == ZHPassValueCondition) {
         ZHPrintInt(value);
     }
     
