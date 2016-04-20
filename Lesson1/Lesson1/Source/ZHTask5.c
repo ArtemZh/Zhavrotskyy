@@ -26,10 +26,7 @@
 
 // 5.2
 void ZHCheckTrueOrFalse(bool value) {
-    //char * returnString ;
     value ? printf("True \n") : printf("False \n");
-    //value ? strcpy(returnString, "true")  : strcpy(returnString, "false");
-    //returnString;
 }
 
 // 5.3
@@ -92,6 +89,7 @@ void ZHDeputySalary(long salary, long revenueDeputat ) {
     } else {
         entity = DeputyEmbezzler;
     }
+    
     ZHPrintDeputyState(entity);
         
 }
@@ -106,13 +104,12 @@ void ZHArray() {
     testArray2[3] = 4;
     testArray2[4] = 5;
     
-    
     int sizeArray = sizeof(testArray)/sizeof(testArray[0]);
     for ( int iterator = 0; iterator < sizeArray; iterator++) {
         printf("%d    %d\n", testArray[iterator], testArray2[iterator]);
     }
-   
 }
+
 //5.12
 void ZHPrintString(char * textArray, bool termination) {
     int textSize = (int)strlen(textArray);
@@ -134,7 +131,6 @@ void ZHPrintNullTerminatedString(char *receivedString, unsigned long lenghtStrin
         printf("%c", receivedString[iterator]);
     }
 }
-
 
 //5.19
 int ZHMamaPapa(int value) {

@@ -20,9 +20,9 @@ void ZHRunAplication() {
     ZHPrintBlankLine();
     ZHPrintBlankLines(1);
     
-    ZHPrintNumberIncreasing();
+    ZHPrintIncreasingValue();
     ZHPrintBlankLines(1);
-    ZHPrintNumberDecreasing();
+    ZHPrintDecreasingValue();
     
     ZHPrintChar("text");
     ZHPrintShort(1);

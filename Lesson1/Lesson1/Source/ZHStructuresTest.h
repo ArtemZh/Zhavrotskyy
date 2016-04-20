@@ -22,21 +22,21 @@ struct ZHStructTypesVar {
     char valueChar;             //8
     int valueInt;               //4
     long valueLong;             //8
-    short shortValue1;          //4
-    short shortValue2;          //4
-    short shortValue3;          //4
+    short valueShort1;          //4
+    short valueShort2;          //4
+    short valueShort3;          //4
     long long valueLongLong;    //8
     float valueFloat;           //8
     double valueDouble;         //8
     long double valueLongDouble;//8
     union {
         struct boolStructure {
-            bool boolValue1 :1;
-            bool boolValue2 :1;
-            bool boolValue3 :1;
-            bool boolValue4 :1;
-            bool boolValue5 :1;
-            bool boolValue6 :1;
+            bool valueBool1 :1;
+            bool valueBool2 :1;
+            bool valueBool3 :1;
+            bool valueBool4 :1;
+            bool valueBool5 :1;
+            bool valueBool6 :1;
         } flags;
         char bitfild;
     };
@@ -55,12 +55,12 @@ struct ZHStructTypesVarOptimized {
     char valueChar;             //1
     union {
         struct boolStructure1 {
-            bool boolValue1;
-            bool boolValue2;
-            bool boolValue3;
-            bool boolValue4;
-            bool boolValue5;
-            bool boolValue6;
+            bool valueBool1;
+            bool valueBool2;
+            bool valueBool3;
+            bool valueBool4;
+            bool valueBool5;
+            bool valueBool6;
         } flags;
     };
 };
