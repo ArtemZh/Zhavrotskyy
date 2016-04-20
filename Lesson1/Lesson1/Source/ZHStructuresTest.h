@@ -62,6 +62,7 @@ struct ZHStructTypesVarOptimized {
             bool valueBool5;
             bool valueBool6;
         } flags;
+        char bitfild;
     };
 };
 
@@ -74,6 +75,6 @@ void ZHPrintBiraryDependOfTypeProccesor(uint8_t charValue, ZHEndianness endianne
 
 
 #define ZHMacrosStructureShiftOutput(typeValue) \
-printf(#typeValue"= %lu \n", offsetof(ZHStructTypesVarOptimized, typeValue))
+    printf(#typeValue"= %lu \n", offsetof(ZHStructTypesVarOptimized, typeValue))
 
 #endif /* ZHStructuresTest_h */
