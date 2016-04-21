@@ -41,7 +41,7 @@ void ZHDeputySalary(long salary, long revenueDeputat);
 ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value);
 void ZHPrintVariablesSize();
 
-void ZHPrintString(char *string);
+void ZHPrintString(const char *string);
 void ZHPrintStringWithLenght(char *string, unsigned long lenght);
 
 #endif /* ZHTask5_h */

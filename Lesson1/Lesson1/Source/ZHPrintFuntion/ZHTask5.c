@@ -122,7 +122,7 @@ void ZHPrintString1(char * textArray, bool termination) {
 }
 
 // 5.13
-void ZHPrintString(char *string) {
+void ZHPrintString(const char *string) {
     ZHPrintStringWithLenght(string, strlen(string));
 }
 
