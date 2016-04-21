@@ -79,7 +79,7 @@ void ZHPrintDeputyState(ZHDeputyEntity entity) {
 }
 
 void ZHDeputySalary(long salary, long revenueDeputat ) {
-    ZHDeputyEntity entity = 0;
+    ZHDeputyEntity entity = DeputyDead;
     if(revenueDeputat < salary * 12  ) {
         entity = DeputyDead;
     } else if (revenueDeputat < salary * 120) {
@@ -117,6 +117,7 @@ void ZHPrintString1(char * textArray, bool termination) {
     for ( int iterator = 0; iterator < textSize; iterator++) {
         printf("%c", textArray[iterator]);
     }
+    
     termination ? printf("\n"):printf("");
 }
 
@@ -126,7 +127,7 @@ void ZHPrintString(char *string) {
 }
 
 void ZHPrintStringWithLenght(char *string, unsigned long lenght) {
-    for(int iterator = 0; iterator < lenght; iterator++) {
+    for (int iterator = 0; iterator < lenght; iterator++) {
         printf("%c", string[iterator]);
     }
 }

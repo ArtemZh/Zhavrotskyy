@@ -20,7 +20,7 @@ void ZHPrintBiraryOfInputValue(uint8_t charValue) {
     printf("{ ");
     for (uint8_t i = 0; i < bitCount; i++) {
         uint8_t index = endianness ? i : bitCount - (i + 1);
-        uint8_t bit = charValue >> (index - 1);
+        uint8_t bit = charValue >> (index);
         printf("%d ", bit & 1);
     }
     
