@@ -11,16 +11,18 @@
 #include "ZHPrintNumberFunction.h"
 #include "ZHPrintTypesVariables.h"
 #include "ZHTask5.h"
+#include "ZHMacrosOutputFunction.h"
+#include "ZHStructuresTest.h"
 
 void ZHRunAplication() {
     ZHPrintHello();
-    ZHPrintHwWithParents("Papa");
-    ZHAddBlankLine();
-    ZHAddManyBlankLine(1);
+    ZHPrintHelloWorldWithParents("Papa");
+    ZHPrintBlankLine();
+    ZHPrintBlankLines(1);
     
-    ZHPrintNumbderIncreasing();
-    ZHAddManyBlankLine(1);
-    ZHPrintNumbderDecreasing();
+    ZHPrintIncreasingValue();
+    ZHPrintBlankLines(1);
+    ZHPrintDecreasingValue();
     
     ZHPrintChar("text");
     ZHPrintShort(1);
@@ -39,17 +41,22 @@ void ZHRunAplication() {
     ZHBoolResultLikeMamaPapa(true);
     ZHBoolResultLikeMamaPapa2(2, 5);
     
-    ZHDeputySalary(1, 2, 2);
-    
     ZHArray();
-    ZHPrintString("aaaa",true);
-    ZHPrintString("bbbbb",false);
-    ZHGetString("123458");
-    ZHGetString("12345\n");
- //   ZHMamaPapa (15);
- //   ZHTaskMamaPapa(34);
-    ZHTaskMamaPapa2(1);
+    ZHPrintString1("aaaa",true);
+    ZHPrintString1("bbbbb",false);
+    ZHPrintString("dlfnkkfv");
     
     
-     
+    ZHDeputySalary( 1, 144444444440);
+    ZHPrintParentsConditionAndValue (14);
+    
+    printf("\n");
+    
+    ZHMacrosTest(1, 'a');
+    ZHPrintSizeOfStructure();
+    ZHPrintBiraryOfInputValue(5);
+    ZHPrintBiraryDependOfTypeProccesor(1, 0);
+   
+    
+    
 }

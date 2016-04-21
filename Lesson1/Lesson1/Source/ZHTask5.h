@@ -15,39 +15,33 @@
 
 #include "ZHPrintFunction.h"
 
+typedef enum {
+    DeputyEmbezzler,
+    DeputyFair,
+    DeputyAngel,
+    DeputyDead
+} ZHDeputyEntity;
+
+typedef enum {
+    ZHPassValueCondition,
+    ZHMamaCondition,
+    ZHPapaCondition,
+    ZHMamaPapaCondition,
+} ZHPrintParentsConditions;
 
 void ZHCheckTrueOrFalse(bool value);
 void ZHArray();
-void ZHPrintString( char * text, bool termination);
-void ZHGetString(char * textArray);
-int ZHMamaPapa (int value);
+void ZHPrintString1( char * text, bool termination);
+int ZHMamaPapa(int value);
 bool ZHBoolOperations(int value1, int value2);
-//bool boolResult;
 void ZHBoolResultLikeMamaPapa(bool result);
 void ZHBoolResultLikeMamaPapa2(int value1, int value2);
-typedef enum {
-    embezzler,
-    fair,
-    angel,
-    dead
-} ZHDeputyEntity;
-void ZHDeputySalary();
-
-
-struct ZHStructTypesVar {
-    char valueChar;
-    short valueShort;
-    int valueInt;
-    long valueLong;
-    long long valueLongLong;
-    float valueFloat;
-    double valueDouble;
-    long double valueLongDouble;
-};
-
+void ZHPrintDeputyState(ZHDeputyEntity entity);
+void ZHDeputySalary(long salary, long revenueDeputat);
+ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value);
 void ZHPrintVariablesSize();
 
-void ZHTaskMamaPapa( int value);
-char ZHTaskMamaPapa2(int value);
+void ZHPrintString(char *string);
+void ZHPrintStringWithLenght(char *string, unsigned long lenght);
 
 #endif /* ZHTask5_h */

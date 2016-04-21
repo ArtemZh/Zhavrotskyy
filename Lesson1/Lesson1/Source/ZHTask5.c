@@ -14,8 +14,6 @@
 #include "ZHPrintFunction.h"
 #include "ZHPrintTypesVariables.h"
 
-
-
 // 5.1
 // true && true = true;
 // true && false = false;
@@ -28,10 +26,7 @@
 
 // 5.2
 void ZHCheckTrueOrFalse(bool value) {
-    //char * returnString ;
     value ? printf("True \n") : printf("False \n");
-    //value ? strcpy(returnString, "true")  : strcpy(returnString, "false");
-    //returnString;
 }
 
 // 5.3
@@ -50,6 +45,7 @@ bool ZHBoolOperations(int value1, int value2) {
 void ZHBoolResultLikeMamaPapa(bool result) {
    result ? ZHPrintCharValue("Mama") : ZHPrintCharValue("Papa");
 }
+
 // 5.5
 void ZHBoolResultLikeMamaPapa2(int value1, int value2) {
     if(value1 < value2) {
@@ -60,47 +56,45 @@ void ZHBoolResultLikeMamaPapa2(int value1, int value2) {
 }
 
 //5.8
-//typedef enum {
-//    embezzler,
-//    fair,
-//    angel,
-//    dead
-//} ZHDeputyEntity;
-
-void ZHDeputySalary(ZHDeputyEntity entity, long salary, long revenueDeputat ) {
-    
-    
-    
-    if(revenueDeputat < salary * 12  ) {
-        entity = angel;
-    } else if (revenueDeputat < salary * 120) {
-        entity = fair;
-    } else if (revenueDeputat > salary * 1000 * 1000) {
-        entity = embezzler;
-    } else {
-        entity = dead;
-    }
+void ZHPrintDeputyState(ZHDeputyEntity entity) {
     
     switch (entity) {
-       // case ZHDeputyEntity[0]
-        case embezzler:
+        case DeputyEmbezzler:
             ZHPrintCharValue("Deputy embezzler");
             break;
-        case fair:
+            
+        case DeputyFair:
             ZHPrintCharValue("Deputy fair");
             break;
-        case angel:
+            
+        case DeputyAngel:
             ZHPrintCharValue("Deputy angel");
             break;
-        case dead:
+            
+        case DeputyDead:
         default:
             ZHPrintCharValue("Deputy dead");
             break;
     }
 }
 
-// 5.10
+void ZHDeputySalary(long salary, long revenueDeputat ) {
+    ZHDeputyEntity entity = 0;
+    if(revenueDeputat < salary * 12  ) {
+        entity = DeputyDead;
+    } else if (revenueDeputat < salary * 120) {
+        entity = DeputyAngel;
+    } else if (revenueDeputat < salary * 1000 * 1000) {
+        entity = DeputyFair;
+    } else {
+        entity = DeputyEmbezzler;
+    }
+    
+    ZHPrintDeputyState(entity);
+        
+}
 
+// 5.10
 void ZHArray() {
     int testArray[5] = {1, 2, 3, 4, 5};
     int testArray2[5];
@@ -110,18 +104,14 @@ void ZHArray() {
     testArray2[3] = 4;
     testArray2[4] = 5;
     
-    
     int sizeArray = sizeof(testArray)/sizeof(testArray[0]);
     for ( int iterator = 0; iterator < sizeArray; iterator++) {
         printf("%d    %d\n", testArray[iterator], testArray2[iterator]);
     }
-   
 }
+
 //5.12
-void ZHPrintString(char * textArray, bool termination) {
-   // char text[5] = "Hello";
-    //int textSize = sizeof(textArray);
-    //printf("%d", textsize);
+void ZHPrintString1(char * textArray, bool termination) {
     int textSize = (int)strlen(textArray);
     printf("%d \n", textSize);
     for ( int iterator = 0; iterator < textSize; iterator++) {
@@ -131,19 +121,18 @@ void ZHPrintString(char * textArray, bool termination) {
 }
 
 // 5.13
-void ZHGetString(char * textArray) {
-    int textSize = (int)strlen(textArray);
-    char lastChar = textArray[textSize - 1];
-//    if (lastChar == '\n') printf("\n Length of String is %d \n", textSize);
-//    else printf("\n String is not terminated \n");
-    lastChar == '\n' ? printf("\n Length of String is %d \n", textSize):printf("\n String is not terminated \n");
+void ZHPrintString(char *string) {
+    ZHPrintStringWithLenght(string, strlen(string));
+}
+
+void ZHPrintStringWithLenght(char *string, unsigned long lenght) {
+    for(int iterator = 0; iterator < lenght; iterator++) {
+        printf("%c", string[iterator]);
+    }
 }
 
 //5.19
-
-
-
-int ZHMamaPapa (int value) {
+int ZHMamaPapa(int value) {
     char * outPutStrung = "";
     int status = 0;
     if (value % 15 == 0) {
@@ -162,52 +151,29 @@ int ZHMamaPapa (int value) {
         outPutStrung = "";
         status = -1;
     }
+    
     printf("%s", outPutStrung );
     return status;
 }
+
 void ZHPrintVariablesSize() {
-   
 }
 
-//void ZHTaskMamaPapa( int value) {
-//    char str1[] = "Mama";
-//    char str2[] = "Papa";
-//    
-//    printf("\n %s", str1);
-//    
-//    if (value % 3 == 0) {
-//        if (value % 5 == 0) {
-//            strcat(str1, str2);
-//        } else {
-//            if (value % 5 == 0) {
-//                strcpy(str1, str2);
-//            }
-//        }
-//    } else {
-//        strchr(str1, value);
-//    }
-//    
-//    ZHPrintCharValue(str1);
-//}
-
-/// sdelat cherez enum, add enum element
-
-char  ZHTaskMamaPapa2(int value) {
-    char str1[] = "Mama";
-    char str2[] = "Papa";
+ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value) {
+    ZHPrintParentsConditions printCondition = ZHPassValueCondition;
+    if (0 == value % 3) {
+        printCondition += ZHMamaCondition;
+        ZHPrintMama();
+    }
     
-    if (value % 3 == 0) {
-        if (value % 5 == 0) {
-            strcat(str1, str2);
-        } else {
-            return str1;
-        }
-    } else {
-        if (value % 5 == 0) {
-            strcpy(str1, str2);
-        } else {
-            strchr(str1, value);
-        }
-    } return str1;
+    if (0 == value % 5) {
+        printCondition += ZHPapaCondition;
+        ZHPrintPapa();
+    }
+    
+    if (printCondition == ZHPassValueCondition) {
+        ZHPrintInt(value);
+    }
+    
+    return printCondition;
 }
-

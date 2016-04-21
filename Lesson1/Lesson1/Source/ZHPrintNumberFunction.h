@@ -9,10 +9,8 @@
 #ifndef ZHPrintNumberFunction_h
 #define ZHPrintNumberFunction_h
 
-#include <stdio.h>
-
-void ZHPrintNumbderIncreasing();
-void ZHPrintNumbderDecreasing();
+void ZHPrintIncreasingValue();
+void ZHPrintDecreasingValue();
 int ZHIncrement(int value);
 int ZHDecrement(int value);
 

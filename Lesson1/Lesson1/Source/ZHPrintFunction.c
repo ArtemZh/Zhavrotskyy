@@ -10,26 +10,30 @@
 #include "ZHPrintFunction.h"
 
 
-//The function prints "Hello world"
+
 void ZHPrintHello() {
     printf("Hello World \n");
 }
 
-//The function prints "hello" and transmitted it the string value
-void ZHPrintHwWithParents(const char *text) {
+void ZHPrintHelloWorldWithParents(const char *text) {
     printf("Hello  %s \n", text);
 }
 
-//The function adds a blank line
-void ZHAddBlankLine() {
+void ZHPrintMama() {
+    printf("Mama");
+}
+
+void ZHPrintPapa() {
+    printf("Papa");
+}
+
+void ZHPrintBlankLine() {
     printf("\n");
 }
 
-//The function adds the number of  n++ rows
-
-void ZHAddManyBlankLine(int NumOfIter ) {
-    for (int iteration = 0; iteration < NumOfIter; iteration++ ) {
-    ZHAddBlankLine();
+void ZHPrintBlankLines(int count) {
+    for (int iteration = 0; iteration < count; iteration++ ) {
+    ZHPrintBlankLine();
     }
 }
 
@@ -40,10 +44,5 @@ void ZHPrintCharValue(const char *text) {
 void ZHPrintPostAndPrefIncrement() {
     int value  = 10;
     int value1  = 10;
-    int result = 0;
-    int result1 = 0;
-    result = value++;
-    result1 = ++value1;
-    printf("%d %d \n", result , value);
-    printf("%d %d \n", result1 , value1);
+    printf("%d %d \n %d %d", value+1 , value, 1+value1 , value1 );
 }
