@@ -111,7 +111,7 @@ void ZHArray() {
 }
 
 //5.12
-void ZHPrintString(char * textArray, bool termination) {
+void ZHPrintString1(char * textArray, bool termination) {
     int textSize = (int)strlen(textArray);
     printf("%d \n", textSize);
     for ( int iterator = 0; iterator < textSize; iterator++) {
@@ -121,14 +121,13 @@ void ZHPrintString(char * textArray, bool termination) {
 }
 
 // 5.13
-void ZHGetString(char *receivedString) {
-    unsigned long lenghtString = strlen(receivedString);
-    ZHPrintNullTerminatedString(receivedString, lenghtString);
+void ZHPrintString(char *string) {
+    ZHPrintStringWithLenght(string, strlen(string));
 }
 
-void ZHPrintNullTerminatedString(char *receivedString, unsigned long lenghtString) {
-    for(int iterator = 0; iterator < lenghtString; iterator++) {
-        printf("%c", receivedString[iterator]);
+void ZHPrintStringWithLenght(char *string, unsigned long lenght) {
+    for(int iterator = 0; iterator < lenght; iterator++) {
+        printf("%c", string[iterator]);
     }
 }
 

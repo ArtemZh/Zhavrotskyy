@@ -42,10 +42,10 @@ void ZHRunAplication() {
     ZHBoolResultLikeMamaPapa2(2, 5);
     
     ZHArray();
-    ZHPrintString("aaaa",true);
-    ZHPrintString("bbbbb",false);
-    ZHGetString("123458");
-    ZHGetString("12345\n");
+    ZHPrintString1("aaaa",true);
+    ZHPrintString1("bbbbb",false);
+    ZHPrintString("dlfnkkfv");
+    
     
     ZHDeputySalary( 1, 144444444440);
     ZHPrintParentsConditionAndValue (14);

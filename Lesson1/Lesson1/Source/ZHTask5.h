@@ -31,8 +31,7 @@ typedef enum {
 
 void ZHCheckTrueOrFalse(bool value);
 void ZHArray();
-void ZHPrintString( char * text, bool termination);
-void ZHGetString(char * textArray);
+void ZHPrintString1( char * text, bool termination);
 int ZHMamaPapa(int value);
 bool ZHBoolOperations(int value1, int value2);
 void ZHBoolResultLikeMamaPapa(bool result);
@@ -42,7 +41,7 @@ void ZHDeputySalary(long salary, long revenueDeputat);
 ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value);
 void ZHPrintVariablesSize();
 
-void ZHGetString(char *receivedString);
-void ZHPrintNullTerminatedString(char *receivedString, unsigned long lenghtString);
+void ZHPrintString(char *string);
+void ZHPrintStringWithLenght(char *string, unsigned long lenght);
 
 #endif /* ZHTask5_h */
