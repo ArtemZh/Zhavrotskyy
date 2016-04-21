@@ -11,8 +11,7 @@
 #include "ZHPrintNumberFunction.h"
 #include "ZHPrintTypesVariables.h"
 #include "ZHTask5.h"
-#include "ZHMacrosOutputFunction.h"
-#include "ZHStructuresTest.h"
+
 
 void ZHRunAplication() {
     ZHPrintHello();
@@ -51,12 +50,4 @@ void ZHRunAplication() {
     ZHPrintParentsConditionAndValue (14);
     
     printf("\n");
-    
-    ZHMacrosTest(1, 'a');
-    ZHPrintSizeOfStructure();
-    ZHPrintBiraryOfInputValue(5);
-    ZHPrintBiraryDependOfTypeProccesor(1, 0);
-   
-    
-    
 }

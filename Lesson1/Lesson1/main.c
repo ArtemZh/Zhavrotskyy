@@ -12,9 +12,10 @@
 
 
 #include "ZHRunAplication.h"
+#include "ZHRunStrutureTask.h"
 
 int main(int argc, const char * argv[]) {
     ZHRunAplication();
-    
+    ZHStructureTask();
     return 0;
 }
