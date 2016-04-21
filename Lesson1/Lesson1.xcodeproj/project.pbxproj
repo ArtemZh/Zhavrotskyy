@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AC03C1B71CB680060039DBC2 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1B61CB680060039DBC2 /* main.c */; };
-		AC03C1C01CB680240039DBC2 /* ZHPrintFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1BE1CB680240039DBC2 /* ZHPrintFunction.c */; };
-		AC03C1C31CB686830039DBC2 /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C11CB686830039DBC2 /* ZHPrintNumberFunction.c */; };
+		AC03C1C31CB686830039DBC2 /* ZHPrintFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C11CB686830039DBC2 /* ZHPrintFunction.c */; };
 		AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */; };
 		AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */; };
 		AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */; };
 		ACD15F5C1CC934AA00F7DADF /* ZHRunStrutureTask.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5A1CC934AA00F7DADF /* ZHRunStrutureTask.c */; };
+		ACD15F5F1CC937BF00F7DADF /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */; };
 		ACD2FB811CC50CB300F91886 /* ZHMacrosOutputFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD2FB7F1CC50CB300F91886 /* ZHMacrosOutputFunction.c */; };
 		ACD2FB841CC5104500F91886 /* ZHStructuresTest.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD2FB821CC5104500F91886 /* ZHStructuresTest.c */; };
 /* End PBXBuildFile section */
@@ -33,18 +33,18 @@
 /* Begin PBXFileReference section */
 		AC03C1B31CB680060039DBC2 /* Lesson1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lesson1; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC03C1B61CB680060039DBC2 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		AC03C1BE1CB680240039DBC2 /* ZHPrintFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHPrintFunction.c; path = ../ZHPrintFunction.c; sourceTree = "<group>"; };
-		AC03C1BF1CB680240039DBC2 /* ZHPrintFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZHPrintFunction.h; path = ../ZHPrintFunction.h; sourceTree = "<group>"; };
-		AC03C1C11CB686830039DBC2 /* ZHPrintNumberFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHPrintNumberFunction.c; path = ../ZHPrintNumberFunction.c; sourceTree = "<group>"; };
-		AC03C1C21CB686830039DBC2 /* ZHPrintNumberFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZHPrintNumberFunction.h; path = ../ZHPrintNumberFunction.h; sourceTree = "<group>"; };
-		AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHPrintTypesVariables.c; path = ../ZHPrintTypesVariables.c; sourceTree = "<group>"; };
-		AC03C1C51CB68C990039DBC2 /* ZHPrintTypesVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZHPrintTypesVariables.h; path = ../ZHPrintTypesVariables.h; sourceTree = "<group>"; };
+		AC03C1C11CB686830039DBC2 /* ZHPrintFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHPrintFunction.c; sourceTree = "<group>"; };
+		AC03C1C21CB686830039DBC2 /* ZHPrintFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPrintFunction.h; sourceTree = "<group>"; };
+		AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHPrintTypesVariables.c; sourceTree = "<group>"; };
+		AC03C1C51CB68C990039DBC2 /* ZHPrintTypesVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPrintTypesVariables.h; sourceTree = "<group>"; };
 		AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHRunAplication.c; sourceTree = "<group>"; };
 		AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunAplication.h; sourceTree = "<group>"; };
-		AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHTask5.c; path = ../ZHTask5.c; sourceTree = "<group>"; };
-		AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZHTask5.h; path = ../ZHTask5.h; sourceTree = "<group>"; };
+		AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHTask5.c; sourceTree = "<group>"; };
+		AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTask5.h; sourceTree = "<group>"; };
 		ACD15F5A1CC934AA00F7DADF /* ZHRunStrutureTask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHRunStrutureTask.c; sourceTree = "<group>"; };
 		ACD15F5B1CC934AA00F7DADF /* ZHRunStrutureTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunStrutureTask.h; sourceTree = "<group>"; };
+		ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHPrintNumberFunction.c; sourceTree = "<group>"; };
+		ACD15F5E1CC937BF00F7DADF /* ZHPrintNumberFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPrintNumberFunction.h; sourceTree = "<group>"; };
 		ACD2FB7F1CC50CB300F91886 /* ZHMacrosOutputFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHMacrosOutputFunction.c; sourceTree = "<group>"; };
 		ACD2FB801CC50CB300F91886 /* ZHMacrosOutputFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHMacrosOutputFunction.h; sourceTree = "<group>"; };
 		ACD2FB821CC5104500F91886 /* ZHStructuresTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHStructuresTest.c; sourceTree = "<group>"; };
@@ -106,12 +106,12 @@
 		ACD15F591CC9330800F7DADF /* ZHPrintFuntion */ = {
 			isa = PBXGroup;
 			children = (
+				ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */,
+				ACD15F5E1CC937BF00F7DADF /* ZHPrintNumberFunction.h */,
 				AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */,
 				AC03C1C51CB68C990039DBC2 /* ZHPrintTypesVariables.h */,
-				AC03C1C11CB686830039DBC2 /* ZHPrintNumberFunction.c */,
-				AC03C1C21CB686830039DBC2 /* ZHPrintNumberFunction.h */,
-				AC03C1BE1CB680240039DBC2 /* ZHPrintFunction.c */,
-				AC03C1BF1CB680240039DBC2 /* ZHPrintFunction.h */,
+				AC03C1C11CB686830039DBC2 /* ZHPrintFunction.c */,
+				AC03C1C21CB686830039DBC2 /* ZHPrintFunction.h */,
 				AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */,
 				AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */,
 			);
@@ -179,10 +179,10 @@
 				ACD15F5C1CC934AA00F7DADF /* ZHRunStrutureTask.c in Sources */,
 				ACD2FB811CC50CB300F91886 /* ZHMacrosOutputFunction.c in Sources */,
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
-				AC03C1C01CB680240039DBC2 /* ZHPrintFunction.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */,
 				AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */,
-				AC03C1C31CB686830039DBC2 /* ZHPrintNumberFunction.c in Sources */,
+				AC03C1C31CB686830039DBC2 /* ZHPrintFunction.c in Sources */,
+				ACD15F5F1CC937BF00F7DADF /* ZHPrintNumberFunction.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
