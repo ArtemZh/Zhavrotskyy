@@ -55,12 +55,12 @@ struct ZHStructTypesVarOptimized {
     char valueChar;             //1
     union {
         struct boolStructure1 {
-            bool valueBool1;
-            bool valueBool2;
-            bool valueBool3;
-            bool valueBool4;
-            bool valueBool5;
-            bool valueBool6;
+            bool valueBool1 :1;
+            bool valueBool2 :1;
+            bool valueBool3 :1;
+            bool valueBool4 :1;
+            bool valueBool5 :1;
+            bool valueBool6 :1;
         } flags;
         char bitfild;
     };

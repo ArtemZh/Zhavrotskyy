@@ -28,8 +28,8 @@
 // macros Print sizeOf Value
 #define ZHMacrosPrintSizeOfValue(type) \
     do { \
-    type value; \
-    printf("Size of "#type" value = %lu \n", sizeof(value)); \
+        type value; \
+        printf("Size of "#type" value = %lu \n", sizeof(value)); \
 } while (0);
 
 void ZHOutput_int(int value);
