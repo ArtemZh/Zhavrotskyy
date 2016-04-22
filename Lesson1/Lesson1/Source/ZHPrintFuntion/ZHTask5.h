@@ -16,10 +16,10 @@
 #include "ZHPrintFunction.h"
 
 typedef enum {
-    DeputyEmbezzler,
-    DeputyFair,
-    DeputyAngel,
-    DeputyDead
+    ZHDeputyEmbezzler,
+    ZHDeputyFair,
+    ZHDeputyAngel,
+    ZHDeputyDead
 } ZHDeputyEntity;
 
 typedef enum {
@@ -42,6 +42,6 @@ ZHPrintParentsConditions ZHPrintParentsConditionAndValue(int value);
 void ZHPrintVariablesSize();
 
 void ZHPrintString(const char *string);
-void ZHPrintStringWithLenght(char *string, unsigned long lenght);
+void ZHPrintStringWithLength(const char *string, unsigned long length);
 
 #endif /* ZHTask5_h */

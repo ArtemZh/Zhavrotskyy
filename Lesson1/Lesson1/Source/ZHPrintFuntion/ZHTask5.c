@@ -59,19 +59,19 @@ void ZHBoolResultLikeMamaPapa2(int value1, int value2) {
 void ZHPrintDeputyState(ZHDeputyEntity entity) {
     
     switch (entity) {
-        case DeputyEmbezzler:
+        case ZHDeputyEmbezzler:
             ZHPrintCharValue("Deputy embezzler");
             break;
             
-        case DeputyFair:
+        case ZHDeputyFair:
             ZHPrintCharValue("Deputy fair");
             break;
             
-        case DeputyAngel:
+        case ZHDeputyAngel:
             ZHPrintCharValue("Deputy angel");
             break;
             
-        case DeputyDead:
+        case ZHDeputyDead:
         default:
             ZHPrintCharValue("Deputy dead");
             break;
@@ -79,15 +79,15 @@ void ZHPrintDeputyState(ZHDeputyEntity entity) {
 }
 
 void ZHDeputySalary(long salary, long revenueDeputat ) {
-    ZHDeputyEntity entity = DeputyDead;
+    ZHDeputyEntity entity = ZHDeputyDead;
     if(revenueDeputat < salary * 12  ) {
-        entity = DeputyDead;
+        entity = ZHDeputyDead;
     } else if (revenueDeputat < salary * 120) {
-        entity = DeputyAngel;
+        entity = ZHDeputyAngel;
     } else if (revenueDeputat < salary * 1000 * 1000) {
-        entity = DeputyFair;
+        entity = ZHDeputyFair;
     } else {
-        entity = DeputyEmbezzler;
+        entity = ZHDeputyEmbezzler;
     }
     
     ZHPrintDeputyState(entity);
@@ -123,11 +123,11 @@ void ZHPrintString1(char * textArray, bool termination) {
 
 // 5.13
 void ZHPrintString(const char *string) {
-    ZHPrintStringWithLenght(string, strlen(string));
+    ZHPrintStringWithLength(string, strlen(string));
 }
 
-void ZHPrintStringWithLenght(char *string, unsigned long lenght) {
-    for (int iterator = 0; iterator < lenght; iterator++) {
+void ZHPrintStringWithLength(const char *string, unsigned long length) {
+    for (int iterator = 0; iterator < length; iterator++) {
         printf("%c", string[iterator]);
     }
 }

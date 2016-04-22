@@ -19,7 +19,7 @@
 #define ZHMacrosPrintValueWithType(type, qualifier) \
     void ZHOutput_ ##type(type value) { \
     printf(#type " value = %" #qualifier "\n", value); \
-}
+    }
 
 // macros call function
 #define ZHOutputValue(type, value) \
@@ -30,7 +30,7 @@
     do { \
         type value; \
         printf("Size of "#type" value = %lu \n", sizeof(value)); \
-} while (0);
+    } while (0);
 
 void ZHOutput_int(int value);
 void ZHOutput_char(char value);
