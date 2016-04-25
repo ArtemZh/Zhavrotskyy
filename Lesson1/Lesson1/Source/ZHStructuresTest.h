@@ -16,7 +16,7 @@
 typedef enum {
     ZHBigEndian,
     ZHLittleEndian
-} ZHEndiannessFormat;
+} ZHEndiannessType;
 
 void ZHPrintBinaryTest();
 
@@ -73,7 +73,7 @@ typedef struct ZHStructTypesVarOptimized ZHStructTypesVarOptimized;
 void ZHPrintSizeOfStructure(void);
 
 void ZHPrintBinaryByte(uint8_t charValue);
-void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessFormat endianness );
+void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessType endianness );
 void ZHPrintBinaryValueWithSize (void *value, size_t size);
 
 
