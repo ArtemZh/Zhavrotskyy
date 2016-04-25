@@ -58,5 +58,5 @@ void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiann
 
 void ZHPrintBinaryValueWithSize (void *value, size_t size) {
     ZHEndiannessType endianness = ZHEndianness();
-    ZHPrintBinaryValueWithSizeAndEndianness(value, sizeof(value), endianness);
+    ZHPrintBinaryValueWithSizeAndEndianness(value, size, endianness);
 }
