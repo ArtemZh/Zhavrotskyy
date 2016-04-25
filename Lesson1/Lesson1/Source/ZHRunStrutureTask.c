@@ -13,9 +13,9 @@
 void ZHStructureTask() {
     ZHMacrosTest(1, 'a');
     ZHPrintSizeOfStructure();
-    ZHPrintBiraryOfInputValue(5);
-    ZHPrintBiraryDependOfTypeProccesor(1, 0);
- 
+    ZHPrintBinaryOfInputbit(5);
+    printf("\n");
+    ZHPrintBinaryTest();
 }
 
 
