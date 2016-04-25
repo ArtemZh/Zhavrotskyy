@@ -26,6 +26,8 @@ void ZHPrintBinaryTest() {
     uint16_t testValue1 = 1;
     printf("\n ZHPrintBinaryValueWithSize \n");
     ZHPrintBinaryValueWithSize(&testValue1, sizeof(testValue1));
+    
+    
 }
 
 void ZHPrintBinaryByte(uint8_t charValue) {
@@ -40,14 +42,14 @@ void ZHPrintBinaryByte(uint8_t charValue) {
     printf("\n");
 }
 
-ZHEndiannessFormat ZHEndianness() {
+ZHEndiannessType ZHEndianness() {
     uint16_t value = 1;
     
     return (((char *)&value)[0]) ? ZHBigEndian : ZHLittleEndian;
 }
 
 
-void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessFormat endianness ) {
+void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessType endianness ) {
     for (size_t i = 0; i < size; i++) {
         uint8_t index = endianness ? i : size - i - 1;
         ZHPrintBinaryByte(((uint8_t *)value)[index]);
@@ -55,6 +57,6 @@ void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiann
 }
 
 void ZHPrintBinaryValueWithSize (void *value, size_t size) {
-    ZHEndiannessFormat endianness = ZHEndianness();
+    ZHEndiannessType endianness = ZHEndianness();
     ZHPrintBinaryValueWithSizeAndEndianness(value, sizeof(value), endianness);
 }
