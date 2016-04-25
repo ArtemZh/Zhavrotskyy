@@ -32,7 +32,7 @@ struct ZHStructTypesVar {
     double valueDouble;         //8
     long double valueLongDouble;//8
     union {
-        struct boolStructure {
+        struct {
             bool valueBool1 :1;
             bool valueBool2 :1;
             bool valueBool3 :1;
@@ -40,7 +40,7 @@ struct ZHStructTypesVar {
             bool valueBool5 :1;
             bool valueBool6 :1;
         } flags;
-        char bitfild;
+        char bitfield;
     };
 };
 
@@ -56,7 +56,7 @@ struct ZHStructTypesVarOptimized {
     short valueShort3;          //4
     char valueChar;             //1
     union {
-        struct boolStructure1 {
+        struct {
             bool valueBool1 :1;
             bool valueBool2 :1;
             bool valueBool3 :1;
@@ -64,7 +64,7 @@ struct ZHStructTypesVarOptimized {
             bool valueBool5 :1;
             bool valueBool6 :1;
         } flags;
-        char bitfild;
+        char bitfield;
     };
 };
 
@@ -72,7 +72,7 @@ typedef struct ZHStructTypesVar ZHStructTypesVar;
 typedef struct ZHStructTypesVarOptimized ZHStructTypesVarOptimized;
 void ZHPrintSizeOfStructure(void);
 
-void ZHPrintBinaryOfInputbit(uint8_t charValue);
+void ZHPrintBinaryByte(uint8_t charValue);
 void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessFormat endianness );
 void ZHPrintBinaryValueWithSize (void *value, size_t size);
 

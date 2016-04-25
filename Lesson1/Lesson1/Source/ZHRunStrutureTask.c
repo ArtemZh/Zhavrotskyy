@@ -13,7 +13,7 @@
 void ZHStructureTask() {
     ZHMacrosTest(1, 'a');
     ZHPrintSizeOfStructure();
-    ZHPrintBinaryOfInputbit(5);
+    ZHPrintBinaryByte(5);
     printf("\n");
     ZHPrintBinaryTest();
 }

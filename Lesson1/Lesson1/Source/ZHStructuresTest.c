@@ -15,18 +15,20 @@ void ZHPrintSizeOfStructure(void) {
 }
 
 void ZHPrintBinaryTest() {
+    printf("Start test\n");
     uint8_t testChar = 5;
-    ZHPrintBinaryOfInputbit(testChar);
+    ZHPrintBinaryByte(testChar);
     
-    float testValue = 7.2;
-    printf("\n");
-    ZHPrintBinaryValueWithSizeAndEndianness(&testValue, sizeof(testValue), ZHBigEndian);
+    uint16_t testValue = 1;
     printf("\n ZHPrintBinaryValueWithSizeAndEndianness \n");
-    ZHPrintBinaryValueWithSize(&testValue, sizeof(testValue));
+    ZHPrintBinaryValueWithSizeAndEndianness(&testValue, sizeof(testValue), ZHBigEndian);
+    printf("\n");
+    uint16_t testValue1 = 1;
     printf("\n ZHPrintBinaryValueWithSize \n");
+    ZHPrintBinaryValueWithSize(&testValue1, sizeof(testValue1));
 }
 
-void ZHPrintBinaryOfInputbit(uint8_t charValue) {
+void ZHPrintBinaryByte(uint8_t charValue) {
     const uint8_t bitCount = 8;
     printf("{ ");
     for (uint8_t i = 0; i < bitCount; i++) {
@@ -40,6 +42,7 @@ void ZHPrintBinaryOfInputbit(uint8_t charValue) {
 
 ZHEndiannessFormat ZHEndianness() {
     uint16_t value = 1;
+    
     return (((char *)&value)[0]) ? ZHBigEndian : ZHLittleEndian;
 }
 
@@ -47,35 +50,11 @@ ZHEndiannessFormat ZHEndianness() {
 void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessFormat endianness ) {
     for (size_t i = 0; i < size; i++) {
         uint8_t index = endianness ? i : size - i - 1;
-        ZHPrintBinaryOfInputbit(((uint8_t *)value)[index]);
+        ZHPrintBinaryByte(((uint8_t *)value)[index]);
     }
 }
 
 void ZHPrintBinaryValueWithSize (void *value, size_t size) {
-    ZHEndiannessFormat endianness = ZHBigEndian;
+    ZHEndiannessFormat endianness = ZHEndianness();
     ZHPrintBinaryValueWithSizeAndEndianness(value, sizeof(value), endianness);
 }
-
-
-//void ZHPrintBinaryValueWithSizeAndDependOfEndianness(uint8_t charValue, ZHEndianness endianness ) {
-//    printf("{ ");
-//    for (uint8_t i = 8; i > 0; i--) {
-//        if (endianness == ZHProcessorBigEndian ) {
-//            uint8_t printShiftValue = charValue >> (i -1 );
-//            if (printShiftValue & 1) {
-//                printf("1 ");
-//            } else {
-//                printf("0 ");
-//            }
-//        } else {
-//            uint8_t printShiftValue = charValue >> (8-i);
-//            if (printShiftValue & 1) {
-//                printf("1 ");
-//            } else {
-//                printf("0 ");
-//            }
-//        }
-//        
-//    } printf("}\n");
-//    printf("\n");
-//}
