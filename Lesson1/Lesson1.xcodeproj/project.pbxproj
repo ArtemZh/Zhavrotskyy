@@ -16,6 +16,7 @@
 		ACD15F5F1CC937BF00F7DADF /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */; };
 		ACD2FB811CC50CB300F91886 /* ZHMacrosOutputFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD2FB7F1CC50CB300F91886 /* ZHMacrosOutputFunction.c */; };
 		ACD2FB841CC5104500F91886 /* ZHStructuresTest.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD2FB821CC5104500F91886 /* ZHStructuresTest.c */; };
+		ACF0BD3D1CCFC97E006506CF /* ZHHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = ACF0BD3B1CCFC97E006506CF /* ZHHuman.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		ACD2FB801CC50CB300F91886 /* ZHMacrosOutputFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHMacrosOutputFunction.h; sourceTree = "<group>"; };
 		ACD2FB821CC5104500F91886 /* ZHStructuresTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHStructuresTest.c; sourceTree = "<group>"; };
 		ACD2FB831CC5104500F91886 /* ZHStructuresTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHStructuresTest.h; sourceTree = "<group>"; };
+		ACF0BD3B1CCFC97E006506CF /* ZHHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHHuman.c; sourceTree = "<group>"; };
+		ACF0BD3C1CCFC97E006506CF /* ZHHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHHuman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				ACD2FB831CC5104500F91886 /* ZHStructuresTest.h */,
 				ACD15F5A1CC934AA00F7DADF /* ZHRunStrutureTask.c */,
 				ACD15F5B1CC934AA00F7DADF /* ZHRunStrutureTask.h */,
+				ACF0BD3B1CCFC97E006506CF /* ZHHuman.c */,
+				ACF0BD3C1CCFC97E006506CF /* ZHHuman.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */,
+				ACF0BD3D1CCFC97E006506CF /* ZHHuman.c in Sources */,
 				ACD2FB841CC5104500F91886 /* ZHStructuresTest.c in Sources */,
 				ACD15F5C1CC934AA00F7DADF /* ZHRunStrutureTask.c in Sources */,
 				ACD2FB811CC50CB300F91886 /* ZHMacrosOutputFunction.c in Sources */,
