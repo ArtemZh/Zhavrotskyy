@@ -51,9 +51,9 @@ struct ZHStructTypesVarOptimized {
     float valueFloat;           //4
     long valueLong;             //4
     int valueInt;               //4
-    short valueShort1;          //4
-    short valueShort2;          //4
-    short valueShort3;          //4
+    short valueShort1;          //2
+    short valueShort2;          //2
+    short valueShort3;          //2
     char valueChar;             //1
     union {
         struct {
@@ -74,7 +74,7 @@ void ZHPrintSizeOfStructure(void);
 
 void ZHPrintBinaryByte(uint8_t charValue);
 void ZHPrintBinaryValueWithSizeAndEndianness(void *value, size_t size, ZHEndiannessType endianness );
-void ZHPrintBinaryValueWithSize (void *value, size_t size);
+void ZHPrintBinaryValueWithSize(void *value, size_t size);
 
 
 #define ZHMacrosStructureShiftOutput(typeValue) \

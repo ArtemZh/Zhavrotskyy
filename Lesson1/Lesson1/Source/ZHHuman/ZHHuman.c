@@ -24,18 +24,23 @@
 //- создать тесты на все поведение человека.
 
 
-static const uint8_t ZHMaxChildrens = 20;
+static const uint32_t kZHMaximumChildrenCount = 20;
 
 struct ZHHuman {
+    
     char *_name;
     uint8_t _age;
     ZHHumanGender _gender;
+    
     uint8_t childrenCount;
-    ZHuman *_children[ZHMaxChildrens];
+    ZHuman *_children[kZHMaximumChildrenCount];
     
     ZHuman *_partner;
-    ZHuman *_mama;
-    ZHuman *_papa;
+    ZHuman *_mother;
+    ZHuman *_father;
+    
+    
+    uint64_t _referenceCount;
 };
 
 

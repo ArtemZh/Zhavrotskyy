@@ -9,7 +9,10 @@
 #ifndef ZHHuman_h
 #define ZHHuman_h
 
+#include <stdbool.h>
 #include <stdio.h>
+
+#include "ZHObject.h"
 
 typedef enum {
     ZHHumanGenderMale,
