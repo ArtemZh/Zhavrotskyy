@@ -10,9 +10,14 @@
 
 #include "ZHObject.h"
 
+void __ZHObjectDeallocate(void *object) {
+    if (object) {
+        free(object);
+    }
+}
+
 void *__ZHObjectCreate(size_t objectSize, ZHObjectDeallocator deallocateCallback) {
-    assert(0 != objectSize);
-    assert(NULL != deallocateCallback);
+    assert(deallocateCallback);
     
     ZHObject *object = calloc(1, objectSize);
     
@@ -22,12 +27,6 @@ void *__ZHObjectCreate(size_t objectSize, ZHObjectDeallocator deallocateCallback
     object->_deallocator = deallocateCallback;
     
     return object;
-}
-
-void __ZHObjectDeallocate(void *object) {
-    if (NULL != object) {
-        free(object);
-    }
 }
 
 void *ZHObjectRetain(void *object) {
