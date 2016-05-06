@@ -28,11 +28,9 @@
 
 
 void ZHHumanSetName(ZHHuman *human, char *name) {
-    assert(NULL != human && human->_name != name); {
-        if (NULL != human->_name) {
-            free (human->_name);
-            human->_name = NULL;
-        }
+    if (human && human->_name) {
+        free(human->_name);
+        human->_name = NULL;
         
         if (name) {
             human->_name = strdup(name);
@@ -45,7 +43,9 @@ char *ZHHumanGetName(ZHHuman *human) {
 }
 
 void ZHHumanSetAge(ZHHuman *human, uint8_t age) {
-    assert(human);
+    if (!human) {
+        return;
+    }
     
     human->_age = age;
 }
@@ -55,7 +55,9 @@ uint8_t ZHHumanGetAge(ZHHuman *human){
 }
 
 void ZHHumanSetGender(ZHHuman *human, ZHHumanGender gender) {
-    assert(human);
+    if (!human) {
+        return;
+    }
     
     human->_gender = gender;
 }
@@ -77,7 +79,9 @@ ZHHuman *ZHHumanGetFather(ZHHuman *human){
 }
 
 void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner) {
-    assert(human);
+    if (!human) {
+        return;
+    }
     
     if (ZHHumanGetPartner(human) != human) {
         ZHObjectRelease(human->_partner);
@@ -87,7 +91,9 @@ void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner) {
 }
 
 void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner) {
-    assert(human);
+    if (!human) {
+        return;
+    }
     
     if (ZHHumanGetPartner(human) != human) {
         human->_partner = partner;
