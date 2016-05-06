@@ -30,7 +30,7 @@ struct ZHHuman {
     uint8_t _age;
     ZHHumanGender _gender;
     
-    uint8_t childrenCount;
+    uint8_t _childrenCount;
     ZHHuman *_children[kZHMaximumChildrenCount];
     
     ZHHuman *_partner;
@@ -69,8 +69,8 @@ ZHHuman *ZHHumanGetMother(ZHHuman *human);
 extern
 ZHHuman *ZHHumanGetFather(ZHHuman *human);
 
-void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner);
-void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner);
+extern
+uint32_t ZHHumanGetChildrenCount(ZHHuman *human);
 
 
 
