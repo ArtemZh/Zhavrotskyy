@@ -21,7 +21,7 @@ void *__ZHObjectCreate(size_t objectSize, ZHObjectDeallocator deallocateCallback
     
     ZHObject *object = calloc(1, objectSize);
     
-    assert(NULL != object);
+    assert(object);
     
     object->_referenceCount = 1;
     object->_deallocator = deallocateCallback;
@@ -30,15 +30,15 @@ void *__ZHObjectCreate(size_t objectSize, ZHObjectDeallocator deallocateCallback
 }
 
 void *ZHObjectRetain(void *object) {
-    if (NULL != object) {
-        ((ZHObject *)object)->_referenceCount++;
+    if (object) {
+        ((ZHObject *)object)->_referenceCount+= 1;
     }
     
     return object;
 }
 
 void ZHObjectRelease(void *object) {
-    if (NULL != object) {
+    if (object) {
         uint64_t count = ((ZHObject *)object)->_referenceCount - 1;
         ((ZHObject *)object)->_referenceCount = count;
         

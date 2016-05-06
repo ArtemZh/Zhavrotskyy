@@ -25,23 +25,83 @@
 //- создать тесты на все поведение человека.
 
 
-static const uint32_t kZHMaximumChildrenCount = 20;
-
-struct ZHHuman {
-    
-    char *_name;
-    uint8_t _age;
-    ZHHumanGender _gender;
-    
-    uint8_t childrenCount;
-    ZHuman *_children[kZHMaximumChildrenCount];
-    
-    ZHuman *_partner;
-    ZHuman *_mother;
-    ZHuman *_father;
-    
-    
-    uint64_t _referenceCount;
-};
 
 
+void ZHHumanSetName(ZHHuman *human, char *name) {
+    assert(NULL != human && human->_name != name); {
+        if (NULL != human->_name) {
+            free (human->_name);
+            human->_name = NULL;
+        }
+        
+        if (name) {
+            human->_name = strdup(name);
+        }
+    }
+}
+
+char *ZHHumanGetName(ZHHuman *human) {
+    return (!human) ? NULL : human->_name;
+}
+
+void ZHHumanSetAge(ZHHuman *human, uint8_t age) {
+    assert(human);
+    
+    human->_age = age;
+}
+
+uint8_t ZHHumanGetAge(ZHHuman *human){
+    return (!human) ? 0 : human->_age;
+}
+
+void ZHHumanSetGender(ZHHuman *human, ZHHumanGender gender) {
+    assert(human);
+    
+    human->_gender = gender;
+}
+
+ZHHumanGender ZHHumanGetGender(ZHHuman *human) {
+    return (!human) ? ZHHumanGenderNotDefined : human->_gender;
+}
+
+ZHHuman *ZHHumanGetPartner(ZHHuman *human){
+    return (!human) ? NULL : human->_partner;
+}
+
+ZHHuman *ZHHumanGetMother(ZHHuman *human){
+    return (!human) ? NULL : human->_mother;
+}
+
+ZHHuman *ZHHumanGetFather(ZHHuman *human){
+    return (!human) ? NULL : human->_partner;
+}
+
+void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner) {
+    assert(human);
+    
+    if (ZHHumanGetPartner(human) != human) {
+        ZHObjectRelease(human->_partner);
+        human->_partner = partner;
+        ZHObjectRetain(partner);
+    }
+}
+
+void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner) {
+    assert(human);
+    
+    if (ZHHumanGetPartner(human) != human) {
+        human->_partner = partner;
+    }
+}
+
+void ZHHumanSetSpouse(ZHHuman *human, ZHHuman *partner) {
+    if (ZHHumanGetGender(human) != ZHHumanGenderNotDefined ) {
+        return;
+    }
+    
+    if (ZHHumanGetGender(human) == ZHHumanGenderMale) {
+        ZHHumanSetStrongPartner(human, partner);
+    } else {
+        ZHHumanSetWeakPartner(human, partner);
+    }
+}

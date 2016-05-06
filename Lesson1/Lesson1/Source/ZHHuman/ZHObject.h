@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 #define ZHObjectCreateWithType(type) \
-__ZHObjectCreate(sizeof(type), (ZHObjectDeallocatorCallback)__##type##Deallocate)
+    __ZHObjectCreate(sizeof(type), (ZHObjectDeallocatorCallback)__##type##Deallocate)
 
 
 typedef void (*ZHObjectDeallocator)(void *object);

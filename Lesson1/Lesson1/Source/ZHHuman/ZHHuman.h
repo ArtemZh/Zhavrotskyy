@@ -15,10 +15,64 @@
 #include "ZHObject.h"
 
 typedef enum {
+    ZHHumanGenderNotDefined,
     ZHHumanGenderMale,
     ZHHumanGenderFemale
 } ZHHumanGender;
 
-typedef struct ZHHuman ZHuman;
+typedef struct ZHHuman ZHHuman;
+
+static const uint32_t kZHMaximumChildrenCount = 20;
+
+struct ZHHuman {
+    
+    char *_name;
+    uint8_t _age;
+    ZHHumanGender _gender;
+    
+    uint8_t childrenCount;
+    ZHHuman *_children[kZHMaximumChildrenCount];
+    
+    ZHHuman *_partner;
+    ZHHuman *_mother;
+    ZHHuman *_father;
+    
+    
+    uint64_t _referenceCount;
+};
+
+
+extern
+void ZHHumanSetName(ZHHuman *human, char *name);
+
+extern
+char *ZHHumanGetName(ZHHuman *human);
+
+extern
+void ZHHumanSetAge(ZHHuman *human, uint8_t age);
+
+extern
+uint8_t ZHHumanGetAge(ZHHuman *human);
+
+extern
+void ZHHumanSetGender(ZHHuman *human, ZHHumanGender gender);
+
+extern
+ZHHumanGender ZHHumanGetGender(ZHHuman *human);
+
+extern
+ZHHuman *ZHHumanGetPartner(ZHHuman *human);
+
+extern
+ZHHuman *ZHHumanGetMother(ZHHuman *human);
+
+extern
+ZHHuman *ZHHumanGetFather(ZHHuman *human);
+
+void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner);
+void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner);
+
+
+
 
 #endif /* ZHHuman_h */
