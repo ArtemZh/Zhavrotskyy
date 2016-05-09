@@ -31,7 +31,7 @@ void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner);
 
 
 void ZHHumanSetName(ZHHuman *human, char *name) {
-    if (human) {
+    if (human && human->_name) {
         if (human->_name != name ) {
             if (human->_name) {
                 free(human->_name);
@@ -138,7 +138,7 @@ void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
         return;
     }
     
-    if (ZHHumanGetPartner(human) == ZHHumanGetPartner(partner)) {
+    if (ZHHumanGetPartner(human) != ZHHumanGetPartner(partner)) {
         return;
     }
     
@@ -163,6 +163,28 @@ uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
     return kZHIndexNotFound;
 }
 
+void ZHHumanChildrenCountIncrement(ZHHuman *human, uint8_t count) {
+    if (!human) {
+        return;
+    }
+    
+    human->_childrenCount += count;
+}
 
+void ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
+    if (!human) {
+        return;
+    }
+    if (ZHHumanGetChildAtIndex(human, index) != child) {
+        ZHObjectRelease(human->_children[index]);
+        human->_children[index] = child;
+        ZHObjectRetain(child);
+    }
+}
+
+void ZHHumanAddChild(ZHHuman *human, ZHHuman *child) {
+    uint8_t indexOfFreeChildPlace = ZHHumanGetIndexOfChild(human, NULL);
+    ZHHumanSetChildAtIndex(human, child, indexOfFreeChildPlace);
+}
 
 
