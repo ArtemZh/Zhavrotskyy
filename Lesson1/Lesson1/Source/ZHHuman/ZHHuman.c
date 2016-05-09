@@ -160,7 +160,7 @@ uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
             break;
         }
     }
-    return UINT8_MAX;
+    return kZHIndexNotFound;
 }
 
 
