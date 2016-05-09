@@ -31,14 +31,19 @@ void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner);
 
 
 void ZHHumanSetName(ZHHuman *human, char *name) {
-    if (human && human->_name) {
-        free(human->_name);
-        human->_name = NULL;
-        
-        if (name) {
-            human->_name = strdup(name);
+    if (human) {
+        if (human->_name != name ) {
+            if (human->_name) {
+                free(human->_name);
+                human->_name = NULL;
+            }
+            
+            if (name) {
+                human->_name = strdup(name);
+            }
         }
     }
+    
 }
 
 char *ZHHumanGetName(ZHHuman *human) {
@@ -66,7 +71,7 @@ void ZHHumanSetGender(ZHHuman *human, ZHHumanGender gender) {
 }
 
 ZHHumanGender ZHHumanGetGender(ZHHuman *human) {
-    return (!human) ? ZHHumanGenderNotDefined : human->_gender;
+    return (!human) ? ZHHumanGenderUndefined : human->_gender;
 }
 
 ZHHuman *ZHHumanGetPartner(ZHHuman *human){
@@ -93,7 +98,7 @@ void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner) {
         return;
     }
     
-    if (ZHHumanGetPartner(human) != human) {
+    if (human->_partner != human) {
         ZHObjectRelease(human->_partner);
         human->_partner = partner;
         ZHObjectRetain(partner);
@@ -105,13 +110,13 @@ void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner) {
         return;
     }
     
-    if (ZHHumanGetPartner(human) != human) {
+    if (human->_partner != human) {
         human->_partner = partner;
     }
 }
 
-void ZHHumanSetSpouse(ZHHuman *human, ZHHuman *partner) {
-    if (ZHHumanGetGender(human) != ZHHumanGenderNotDefined ) {
+void ZHHumanSetPartner(ZHHuman *human, ZHHuman *partner) {
+    if (ZHHumanGetGender(human) != ZHHumanGenderUndefined ) {
         return;
     }
     
@@ -121,3 +126,43 @@ void ZHHumanSetSpouse(ZHHuman *human, ZHHuman *partner) {
         ZHHumanSetWeakPartner(human, partner);
     }
 }
+
+void ZHHumanGetDivorseWithPartner(ZHHuman *human) {
+    ZHHuman *partner = ZHHumanGetPartner(human);
+    ZHHumanSetPartner(human, NULL);
+    ZHHumanSetPartner(partner, NULL);
+}
+
+void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
+    if (ZHHumanGetGender(human) == ZHHumanGetGender(partner)) {
+        return;
+    }
+    
+    if (ZHHumanGetPartner(human) == ZHHumanGetPartner(partner)) {
+        return;
+    }
+    
+    ZHHumanSetPartner(human, partner);
+}
+
+uint8_t ZHHumanGetCountOfChildren(ZHHuman *human){
+    return human->_childrenCount;
+}
+
+ZHHuman *ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index){
+ return human->_children[index];
+}
+
+uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
+    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment +=1) {
+        if (ZHHumanGetChildAtIndex(human, increment) == child) {
+            return increment;
+            break;
+        }
+    }
+    return UINT8_MAX;
+}
+
+
+
+

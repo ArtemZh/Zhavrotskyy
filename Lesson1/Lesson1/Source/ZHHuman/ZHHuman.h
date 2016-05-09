@@ -15,16 +15,16 @@
 #include "ZHObject.h"
 
 typedef enum {
-    ZHHumanGenderNotDefined,
+    ZHHumanGenderUndefined,
     ZHHumanGenderMale,
     ZHHumanGenderFemale
 } ZHHumanGender;
 
+static const uint8_t kZHMaximumChildrenCount = 20;
+
 typedef struct ZHHuman ZHHuman;
-
-static const uint32_t kZHMaximumChildrenCount = 20;
-
 struct ZHHuman {
+    uint64_t _referenceCount;
     
     char *_name;
     uint8_t _age;
@@ -36,11 +36,7 @@ struct ZHHuman {
     ZHHuman *_partner;
     ZHHuman *_mother;
     ZHHuman *_father;
-    
-    
-    uint64_t _referenceCount;
 };
-
 
 extern
 void ZHHumanSetName(ZHHuman *human, char *name);

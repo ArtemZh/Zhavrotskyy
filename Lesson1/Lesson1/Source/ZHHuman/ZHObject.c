@@ -10,9 +10,9 @@
 
 #include "ZHObject.h"
 
-void __ZHObjectDeallocate(void *object) {
-    if (object) {
-        free(object);
+void __ZHObjectDeallocate(void *address) {
+    if (address) {
+        free(address);
     }
 }
 
@@ -29,21 +29,22 @@ void *__ZHObjectCreate(size_t objectSize, ZHObjectDeallocator deallocateCallback
     return object;
 }
 
-void *ZHObjectRetain(void *object) {
-    if (object) {
-        ((ZHObject *)object)->_referenceCount+= 1;
+void *ZHObjectRetain(void *address) {
+    if (address) {
+        ZHObject *object = address;
+        object->_referenceCount+= 1;
     }
     
-    return object;
+    return address;
 }
 
-void ZHObjectRelease(void *object) {
-    if (object) {
-        uint64_t count = ((ZHObject *)object)->_referenceCount - 1;
-        ((ZHObject *)object)->_referenceCount = count;
+void ZHObjectRelease(void *adderess) {
+    if (adderess) {
+        ZHObject *object = adderess;
+         object->_referenceCount -= 1;
         
-        if (0 == count) {
-            ((ZHObject *)object)->_deallocator(object);
+        if (0 == object->_referenceCount) {
+            object->_deallocator(object);
         }
     }
 }

@@ -28,12 +28,12 @@ extern
 void *__ZHObjectCreate(size_t objectSize, ZHObjectDeallocator deallocateCallback);
 
 extern
-void __ZHObjectDeallocate(void *object);
+void __ZHObjectDeallocate(void *address);
 
 extern
-void *ZHObjectRetain(void *object);
+void *ZHObjectRetain(void *address);
 
 extern
-void ZHObjectRelease(void *object);
+void ZHObjectRelease(void *address);
 
 #endif /* ZHObject_h */

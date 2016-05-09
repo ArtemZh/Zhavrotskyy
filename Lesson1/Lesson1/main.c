@@ -15,7 +15,7 @@
 #include "ZHRunStrutureTask.h"
 
 int main(int argc, const char * argv[]) {
-    ZHRunAplication();
-    ZHStructureTask();
+  //  ZHRunAplication();
+  //r  ZHStructureTask();
     return 0;
 }
