@@ -22,7 +22,7 @@ typedef enum {
 
 static const uint8_t kZHMaximumChildrenCount = 20;
 
-static const uint8_t kZHIndexNotFound = UINT8_MAX;
+const uint8_t kZHIndexNotFound = UINT8_MAX;
 
 typedef struct ZHHuman ZHHuman;
 struct ZHHuman {

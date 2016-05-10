@@ -266,7 +266,7 @@ void ZHHumnaRemoveAllChild(ZHHuman *human){
     if (!human) {
         return;
     }
-    for (uint8_t increment = kZHMaximumChildrenCount; increment>= 0; increment -=1) {
+    for (uint8_t increment = kZHMaximumChildrenCount -1; increment>= 0; increment -=1) {
         ZHHuman *child = ZHHumanGetChildAtIndex(human, increment);
         if (child != NULL) {
             ZHChildeSetFather(child, 0);
