@@ -233,15 +233,18 @@ void ZHHumanAddChild(ZHHuman *human, ZHHuman *child) {
     ZHHumanSetChildrenCount(human, 1);
 }
 
+//void ZHHumanRemoveChild(ZHHuman *child, ZHHuman *human) {
+//    ZHHuman *partner = ZHHumanGetPartner(human);
+//    ZHHumanSetChildAtIndex(human, NULL, ZHHumanGetIndexOfChild(human, child));
+//    ZHHumanSetChildAtIndex(partner, NULL, ZHHumanGetIndexOfChild(partner, child));
+//    ZHHumanSetChildrenCount(human, -1);
+//    ZHHumanSetChildrenCount(partner, -1);
+//}
+
 void ZHHumanRemoveChild(ZHHuman *child, ZHHuman *human) {
-    ZHHuman *partner = ZHHumanGetPartner(human);
     ZHHumanSetChildAtIndex(human, NULL, ZHHumanGetIndexOfChild(human, child));
-    ZHHumanSetChildAtIndex(partner, NULL, ZHHumanGetIndexOfChild(partner, child));
     ZHHumanSetChildrenCount(human, -1);
-    ZHHumanSetChildrenCount(partner, -1);
 }
-
-
 
 ZHHuman ZHHumanCreateChild(ZHHuman *human) {
     if (ZHHumanGetChildrenCount(human)>kZHMaximumChildrenCount -1) {
