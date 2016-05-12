@@ -26,6 +26,7 @@ const uint8_t kZHIndexNotFound = UINT8_MAX;
 
 typedef struct ZHHuman ZHHuman;
 struct ZHHuman {
+    ZHObject _super;
     uint64_t _referenceCount;
     
     char *_name;

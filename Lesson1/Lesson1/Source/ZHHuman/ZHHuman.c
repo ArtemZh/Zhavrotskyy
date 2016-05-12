@@ -25,6 +25,8 @@ void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner);
 static
 void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner);
 
+
+
 #pragma mark -
 #pragma mark Public Implementations
 
@@ -124,7 +126,7 @@ void ZHHumanGetDivorseWithPartner(ZHHuman *human) {
 }
 
 bool ZHHumanCanGetMarried(ZHHuman *human, ZHHuman *partner) {
-    return ZHHumanGetGender(human) == ZHHumanGetGender(partner);
+    return ZHHumanGetGender(human) != ZHHumanGetGender(partner);
 }
 
 void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
@@ -139,7 +141,8 @@ void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
     ZHHumanSetPartner(partner, human);
 }
 
-uint8_t ZHHumanGetCountOfChildren(ZHHuman *human){
+uint8_t ZHHumanGetChildCount(ZHHuman *human){   //getchildcount
+    //o
     return human->_childrenCount;
 }
 
@@ -151,40 +154,24 @@ uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
     for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment +=1) {
         if (ZHHumanGetChildAtIndex(human, increment) == child) {
             return increment;
-            break;
         }
     }
     return kZHIndexNotFound;
 }
 
-//void ZHHumanChildrenCountIncreament(ZHHuman *human) {
-//    if (!human) {
-//        return;
-//    }
-//    
-//    human->_childrenCount += 1;
-//}
-//
-//void ZHHumanChildrenCountDecreament(ZHHuman *human) {
-//    if (!human) {
-//        return;
-//    }
-//    
-//    human->_childrenCount -= 1;
-//}
 
 void ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
-    if (!human) {
+    if (!human || ZHHumanGetChildAtIndex(human, index) != child) {
         return;
     }
-    if (ZHHumanGetChildAtIndex(human, index) != child) {
-        ZHObjectRelease(human->_children[index]);
-        human->_children[index] = child;
-        ZHObjectRetain(child);
-    }
+    
+    ZHObjectRelease(human->_children[index]);
+    human->_children[index] = child;
+    ZHObjectRetain(child);
+    
 }
 
-void ZHHumanPutChild(ZHHuman *human, ZHHuman *child) {
+void ZHHumanSetChild(ZHHuman *human, ZHHuman *child) {              // ne puts
     uint8_t indexOfFreeChildPlace = ZHHumanGetIndexOfChild(human, NULL);
     ZHHumanSetChildAtIndex(human, child, indexOfFreeChildPlace);
 }
@@ -228,7 +215,7 @@ void ZHHumanSetChildrenCount(ZHHuman *human, uint8_t value) {
 }
 
 void ZHHumanAddChild(ZHHuman *human, ZHHuman *child) {
-    ZHHumanPutChild(human, child);
+    ZHHumanSetChild(human, child);
     ZHChildSetParent(child, human);
     ZHHumanSetChildrenCount(human, 1);
 }
@@ -246,9 +233,33 @@ void ZHHumanRemoveChild(ZHHuman *child, ZHHuman *human) {
     ZHHumanSetChildrenCount(human, -1);
 }
 
-ZHHuman ZHHumanCreateChild(ZHHuman *human) {
-    if (ZHHumanGetChildrenCount(human)>kZHMaximumChildrenCount -1) {
+void ZHHumanRemoveAllChild(ZHHuman *human){
+    if (!human) {
         return;
+    }
+    
+    for (uint8_t increment = kZHMaximumChildrenCount -1; increment >= 0; increment -=1) {
+        ZHHuman *child = ZHHumanGetChildAtIndex(human, increment);
+        if (child != NULL) {
+            ZHChildeSetFather(child, 0);
+            ZHChildeSetMother(child, 0);
+            ZHHumanSetChildAtIndex(human, NULL, increment);
+            
+        }
+    }
+    
+}
+
+void __ZHHumanDeallocate(void *human) {
+    ZHHumanGetDivorseWithPartner(human);
+    ZHChildeSetMother(human, NULL);
+    ZHChildeSetFather(human, NULL);
+    ZHHumanRemoveAllChild(human);
+}
+
+ZHHuman *ZHHumanCreateChild(ZHHuman *human) {
+    if (ZHHumanGetChildrenCount(human)>kZHMaximumChildrenCount -1) {
+        return NULL;
     }
     
     ZHHuman *child = ZHObjectCreateWithType(ZHHuman);
@@ -261,23 +272,14 @@ ZHHuman ZHHumanCreateChild(ZHHuman *human) {
     ZHChildSetParent(child, human);
     ZHChildSetParent(child, partner);
     
-}
-
-
-
-void ZHHumnaRemoveAllChild(ZHHuman *human){
-    if (!human) {
-        return;
-    }
-    for (uint8_t increment = kZHMaximumChildrenCount -1; increment>= 0; increment -=1) {
-        ZHHuman *child = ZHHumanGetChildAtIndex(human, increment);
-        if (child != NULL) {
-            ZHChildeSetFather(child, 0);
-            ZHChildeSetMother(child, 0);
-            ZHHumanSetChildAtIndex(human, NULL, increment);
-            
-        }
-    }
+    return child;
     
 }
+
+ZHHuman *ZHCreatHuman(void) {
+    ZHHuman *human = ZHObjectCreateWithType(ZHHuman);
+    
+    return human;
+}
+
 
