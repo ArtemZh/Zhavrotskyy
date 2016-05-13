@@ -14,8 +14,6 @@
 #include "ZHHuman.h"
 #include "ZHObject.h"
 
-
-
 #pragma mark -
 #pragma mark Private declaration
 
@@ -25,7 +23,8 @@ void ZHHumanSetStrongPartner(ZHHuman *human, ZHHuman *partner);
 static
 void ZHHumanSetWeakPartner(ZHHuman *human, ZHHuman *partner);
 
-
+static
+uint8_t ZHHumanGetTrueIndexOfChild(ZHHuman *human, uint8_t index);
 
 #pragma mark -
 #pragma mark Public Implementations
@@ -112,14 +111,27 @@ void ZHHumanSetPartner(ZHHuman *human, ZHHuman *partner) {
         return;
     }
     
-    if (ZHHumanGetGender(human) == ZHHumanGenderMale) {
-        ZHHumanSetStrongPartner(human, partner);
-    } else {
-        ZHHumanSetWeakPartner(human, partner);
+    switch (ZHHumanGetGender(human)) {
+        case ZHHumanGenderMale:
+            ZHHumanSetStrongPartner(human, partner);
+            break;
+        case ZHHumanGenderFemale:
+            ZHHumanSetWeakPartner(human, partner);
+            break;
+            
+        default:
+            break;
     }
+    
+    
+//    if (ZHHumanGetGender(human) == ZHHumanGenderMale) {
+//        ZHHumanSetStrongPartner(human, partner);
+//    } else {
+//        ZHHumanSetWeakPartner(human, partner);
+//    }
 }
 
-void ZHHumanGetDivorseWithPartner(ZHHuman *human) {
+void ZHHumanGetDivorced(ZHHuman *human) {
     ZHHuman *partner = ZHHumanGetPartner(human);
     ZHHumanSetPartner(human, NULL);
     ZHHumanSetPartner(partner, NULL);
@@ -134,34 +146,50 @@ void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
         return;
     }
     
-    ZHHumanGetDivorseWithPartner(partner);
-    ZHHumanGetDivorseWithPartner(human);
+    ZHHumanGetDivorced(partner);
+    ZHHumanGetDivorced(human);
     
     ZHHumanSetPartner(human, partner);
     ZHHumanSetPartner(partner, human);
 }
 
-uint8_t ZHHumanGetChildCount(ZHHuman *human){   //getchildcount
-    //o
+uint8_t ZHHumanGetChildCount(ZHHuman *human){
+    if (!human) {
+        return NULL;
+    }
+    
     return human->_childrenCount;
 }
 
-ZHHuman *ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index){
- return human->_children[index];
+ZHHuman *__ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index){
+    if (!human) {
+        return NULL;
+    }
+    return human->_children[index];
 }
 
-uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
+ZHHuman *ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index) {
+    uint8_t trueIndex = ZHHumanGetTrueIndexOfChild(human, index);
+    return human->_children[trueIndex];
+}
+
+uint8_t __ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
     for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment +=1) {
-        if (ZHHumanGetChildAtIndex(human, increment) == child) {
+        if (__ZHHumanGetChildAtIndex(human, increment) == child) {
             return increment;
         }
     }
+    
     return kZHIndexNotFound;
 }
 
+uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
+    uint8_t index = __ZHHumanGetIndexOfChild(human, child);
+    return  ZHHumanGetTrueIndexOfChild(human, index);
+}
 
-void ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
-    if (!human || ZHHumanGetChildAtIndex(human, index) != child) {
+void __ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
+    if (!human || human->_children[index] != child) {
         return;
     }
     
@@ -171,9 +199,24 @@ void ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
     
 }
 
-void ZHHumanSetChild(ZHHuman *human, ZHHuman *child) {              // ne puts
-    uint8_t indexOfFreeChildPlace = ZHHumanGetIndexOfChild(human, NULL);
-    ZHHumanSetChildAtIndex(human, child, indexOfFreeChildPlace);
+void ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
+    uint8_t trueIndex = ZHHumanGetTrueIndexOfChild(human, index);
+    __ZHHumanSetChildAtIndex(human, child, trueIndex);
+}
+
+uint8_t ZHHumanGetTrueIndexOfChild(ZHHuman *human, uint8_t index) {
+    uint8_t trueIndex = 0;
+    for (uint8_t increment = 0; trueIndex == index ; increment +=1) {
+        if (__ZHHumanGetChildAtIndex(human, increment)) {
+            trueIndex +=1;
+        }
+    }
+    return trueIndex;
+}
+
+void ZHHumanAppendChild(ZHHuman *human, ZHHuman *child) {              // ne puts
+    uint8_t index = __ZHHumanGetIndexOfChild(human, NULL);
+    __ZHHumanSetChildAtIndex(human, child, index);
 }
 
 
@@ -197,14 +240,14 @@ void ZHChildeSetMother(ZHHuman *child, ZHHuman *mother) {
     }
 }
 
-void ZHChildSetParent(ZHHuman *child,ZHHuman *parent) {
-    if (!child && parent && ZHHumanGetGender(parent)) {
+void ZHHumanSetParent(ZHHuman *human,ZHHuman *parent, ZHHumanGender parentGender) {
+    if (ZHHumanGenderUndefined) {
         return;
     }
     if (ZHHumanGetGender(parent)== ZHHumanGenderMale) {
-        ZHChildeSetMother(child, parent);
+        ZHChildeSetMother(human, parent);
     } else {
-        ZHChildeSetFather(child, parent);
+        ZHChildeSetFather(human, parent);
     }
 }
 
@@ -215,21 +258,21 @@ void ZHHumanSetChildrenCount(ZHHuman *human, uint8_t value) {
 }
 
 void ZHHumanAddChild(ZHHuman *human, ZHHuman *child) {
-    ZHHumanSetChild(human, child);
-    ZHChildSetParent(child, human);
+    ZHHumanAppendChild(human, child);
+    ZHHumanSetParent(child, human, ZHHumanGetGender(human));
     ZHHumanSetChildrenCount(human, 1);
 }
 
 //void ZHHumanRemoveChild(ZHHuman *child, ZHHuman *human) {
 //    ZHHuman *partner = ZHHumanGetPartner(human);
-//    ZHHumanSetChildAtIndex(human, NULL, ZHHumanGetIndexOfChild(human, child));
-//    ZHHumanSetChildAtIndex(partner, NULL, ZHHumanGetIndexOfChild(partner, child));
+//    __ZHHumanSetChildAtIndex(human, NULL, __ZHHumanGetIndexOfChild(human, child));
+//    __ZHHumanSetChildAtIndex(partner, NULL, __ZHHumanGetIndexOfChild(partner, child));
 //    ZHHumanSetChildrenCount(human, -1);
 //    ZHHumanSetChildrenCount(partner, -1);
 //}
 
 void ZHHumanRemoveChild(ZHHuman *child, ZHHuman *human) {
-    ZHHumanSetChildAtIndex(human, NULL, ZHHumanGetIndexOfChild(human, child));
+    __ZHHumanSetChildAtIndex(human, NULL, __ZHHumanGetIndexOfChild(human, child));
     ZHHumanSetChildrenCount(human, -1);
 }
 
@@ -238,12 +281,13 @@ void ZHHumanRemoveAllChild(ZHHuman *human){
         return;
     }
     
-    for (uint8_t increment = kZHMaximumChildrenCount -1; increment >= 0; increment -=1) {
-        ZHHuman *child = ZHHumanGetChildAtIndex(human, increment);
+    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount; increment +=1) {
+        ZHHuman *child = __ZHHumanGetChildAtIndex(human, kZHMaximumChildrenCount - increment);
         if (child != NULL) {
-            ZHChildeSetFather(child, 0);
-            ZHChildeSetMother(child, 0);
-            ZHHumanSetChildAtIndex(human, NULL, increment);
+        ZHHumanSetParent(child, human, ZHHumanGetGender(human));
+          //  ZHChildeSetFather(child, 0);
+          //  ZHChildeSetMother(child, 0);
+            __ZHHumanSetChildAtIndex(human, NULL, kZHMaximumChildrenCount - increment);
             
         }
     }
@@ -251,7 +295,7 @@ void ZHHumanRemoveAllChild(ZHHuman *human){
 }
 
 void __ZHHumanDeallocate(void *human) {
-    ZHHumanGetDivorseWithPartner(human);
+    ZHHumanGetDivorced(human);
     ZHChildeSetMother(human, NULL);
     ZHChildeSetFather(human, NULL);
     ZHHumanRemoveAllChild(human);
@@ -269,8 +313,8 @@ ZHHuman *ZHHumanCreateChild(ZHHuman *human) {
     ZHHumanAddChild(human, child);
     ZHHumanAddChild(partner, child);
     
-    ZHChildSetParent(child, human);
-    ZHChildSetParent(child, partner);
+    ZHHumanSetParent(child, human, ZHHumanGetGender(human));
+    ZHHumanSetParent(child, partner, ZHHumanGetGender(partner));
     
     return child;
     

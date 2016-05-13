@@ -37,6 +37,6 @@ extern
 void ZHObjectRelease(void *object);
 
 extern
-uint64_t ZHObjectGetRetainCount(void *object);
+uint64_t ZHObjectGetReferenceCount(void *object);
 
 #endif /* ZHObject_h */

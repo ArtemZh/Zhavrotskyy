@@ -49,7 +49,7 @@ void ZHObjectRelease(void *adderess) {
     }
 }
 
-uint64_t ZHObjectGetRetainCount(void *object) {
+uint64_t ZHObjectGetReferenceCount(void *object) {
     return object ? ((ZHObject*)object)->_referenceCount : 0;
 }
 
