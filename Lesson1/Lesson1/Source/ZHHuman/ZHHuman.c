@@ -115,6 +115,7 @@ void ZHHumanSetPartner(ZHHuman *human, ZHHuman *partner) {
         case ZHHumanGenderMale:
             ZHHumanSetStrongPartner(human, partner);
             break;
+            
         case ZHHumanGenderFemale:
             ZHHumanSetWeakPartner(human, partner);
             break;
@@ -122,13 +123,6 @@ void ZHHumanSetPartner(ZHHuman *human, ZHHuman *partner) {
         default:
             break;
     }
-    
-    
-//    if (ZHHumanGetGender(human) == ZHHumanGenderMale) {
-//        ZHHumanSetStrongPartner(human, partner);
-//    } else {
-//        ZHHumanSetWeakPartner(human, partner);
-//    }
 }
 
 void ZHHumanGetDivorced(ZHHuman *human) {
@@ -154,17 +148,14 @@ void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
 }
 
 uint8_t ZHHumanGetChildCount(ZHHuman *human){
-    if (!human) {
-        return NULL;
-    }
-    
-    return human->_childrenCount;
+    return (!human) ? NULL : human->_childrenCount;
 }
 
 ZHHuman *__ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index){
     if (!human) {
         return NULL;
     }
+    
     return human->_children[index];
 }
 
@@ -174,7 +165,7 @@ ZHHuman *ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index) {
 }
 
 uint8_t __ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
-    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment +=1) {
+    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment += 1) {
         if (__ZHHumanGetChildAtIndex(human, increment) == child) {
             return increment;
         }
@@ -184,9 +175,19 @@ uint8_t __ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
 }
 
 uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
+    uint8_t trueIndex = 0;
     uint8_t index = __ZHHumanGetIndexOfChild(human, child);
-    return  ZHHumanGetTrueIndexOfChild(human, index);
+    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment += 1) {
+        if (__ZHHumanGetChildAtIndex(human, increment) != NULL) {
+            trueIndex += 1;
+            return trueIndex == index;  //
+        }
+    }
+    
+    return  trueIndex;
 }
+
+
 
 void __ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
     if (!human || human->_children[index] != child) {
@@ -206,19 +207,19 @@ void ZHHumanSetChildAtIndex(ZHHuman *human, ZHHuman *child, uint8_t index) {
 
 uint8_t ZHHumanGetTrueIndexOfChild(ZHHuman *human, uint8_t index) {
     uint8_t trueIndex = 0;
-    for (uint8_t increment = 0; trueIndex == index ; increment +=1) {
+    for (uint8_t increment = 0; trueIndex != index ||increment < kZHMaximumChildrenCount ; increment += 1) {
         if (__ZHHumanGetChildAtIndex(human, increment)) {
-            trueIndex +=1;
+            trueIndex += 1;
         }
     }
+    
     return trueIndex;
 }
 
-void ZHHumanAppendChild(ZHHuman *human, ZHHuman *child) {              // ne puts
+void ZHHumanAppendChild(ZHHuman *human, ZHHuman *child) {
     uint8_t index = __ZHHumanGetIndexOfChild(human, NULL);
     __ZHHumanSetChildAtIndex(human, child, index);
 }
-
 
 void ZHChildeSetFather(ZHHuman *child, ZHHuman *father) {
     if (!child && father) {
@@ -281,17 +282,14 @@ void ZHHumanRemoveAllChild(ZHHuman *human){
         return;
     }
     
-    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount; increment +=1) {
+    for (uint8_t increment = 0; increment < kZHMaximumChildrenCount; increment += 1) {
         ZHHuman *child = __ZHHumanGetChildAtIndex(human, kZHMaximumChildrenCount - increment);
         if (child != NULL) {
         ZHHumanSetParent(child, human, ZHHumanGetGender(human));
-          //  ZHChildeSetFather(child, 0);
-          //  ZHChildeSetMother(child, 0);
-            __ZHHumanSetChildAtIndex(human, NULL, kZHMaximumChildrenCount - increment);
+        __ZHHumanSetChildAtIndex(human, NULL, kZHMaximumChildrenCount - increment);
             
         }
     }
-    
 }
 
 void __ZHHumanDeallocate(void *human) {
@@ -299,6 +297,8 @@ void __ZHHumanDeallocate(void *human) {
     ZHChildeSetMother(human, NULL);
     ZHChildeSetFather(human, NULL);
     ZHHumanRemoveAllChild(human);
+    
+    __ZHHumanDeallocate(human);
 }
 
 ZHHuman *ZHHumanCreateChild(ZHHuman *human) {
@@ -325,5 +325,3 @@ ZHHuman *ZHCreatHuman(void) {
     
     return human;
 }
-
-

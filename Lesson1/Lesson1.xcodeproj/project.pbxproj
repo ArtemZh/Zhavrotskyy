@@ -12,6 +12,7 @@
 		AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */; };
 		AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */; };
 		AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */; };
+		AC6796191CEA073C0035AD62 /* ZHString.c in Sources */ = {isa = PBXBuildFile; fileRef = AC6796171CEA073C0035AD62 /* ZHString.c */; };
 		ACCDF2021CD25497001E3E5D /* ZHObject.c in Sources */ = {isa = PBXBuildFile; fileRef = ACCDF2001CD25497001E3E5D /* ZHObject.c */; };
 		ACD15F5C1CC934AA00F7DADF /* ZHStructuresTest.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5A1CC934AA00F7DADF /* ZHStructuresTest.c */; };
 		ACD15F5F1CC937BF00F7DADF /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */; };
@@ -43,6 +44,8 @@
 		AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunAplication.h; sourceTree = "<group>"; };
 		AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHTask5.c; sourceTree = "<group>"; };
 		AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTask5.h; sourceTree = "<group>"; };
+		AC6796171CEA073C0035AD62 /* ZHString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHString.c; sourceTree = "<group>"; };
+		AC6796181CEA073C0035AD62 /* ZHString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHString.h; sourceTree = "<group>"; };
 		ACCDF2001CD25497001E3E5D /* ZHObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHObject.c; sourceTree = "<group>"; };
 		ACCDF2011CD25497001E3E5D /* ZHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHObject.h; sourceTree = "<group>"; };
 		ACD15F5A1CC934AA00F7DADF /* ZHStructuresTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHStructuresTest.c; path = ../../ZHStructureTask/ZHStructuresTest.c; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 			children = (
 				ACCDF2001CD25497001E3E5D /* ZHObject.c */,
 				ACCDF2011CD25497001E3E5D /* ZHObject.h */,
+				AC6796171CEA073C0035AD62 /* ZHString.c */,
+				AC6796181CEA073C0035AD62 /* ZHString.h */,
 				ACF0BD3B1CCFC97E006506CF /* ZHHuman.c */,
 				ACF0BD3C1CCFC97E006506CF /* ZHHuman.h */,
 			);
@@ -209,6 +214,7 @@
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */,
 				AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */,
+				AC6796191CEA073C0035AD62 /* ZHString.c in Sources */,
 				AC03C1C31CB686830039DBC2 /* ZHPrintFunction.c in Sources */,
 				ACD15F5F1CC937BF00F7DADF /* ZHPrintNumberFunction.c in Sources */,
 				ACCDF2021CD25497001E3E5D /* ZHObject.c in Sources */,
