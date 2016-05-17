@@ -28,6 +28,6 @@ extern
 size_t ZHStringGetStringLenght(char *string);
 
 extern
-ZHString *ZHStringCopy(char *value);
+ZHString *ZHStringCopy(ZHString *string, ZHString *newString);
 
 #endif /* ZHString_h */

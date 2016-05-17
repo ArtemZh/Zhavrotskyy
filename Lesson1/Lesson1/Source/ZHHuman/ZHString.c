@@ -51,11 +51,12 @@ char ZHStringGetString (ZHString *string) {
     return (!string) ? NULL : string->_value;
 }
 
-ZHString *ZHStringCopy(char *value) {
-    if (!value) {
+ZHString *ZHStringCopy(ZHString *string, ZHString *newString) {
+    if (!string && !newString) {
         return NULL;
     }
     
+    ZHStringSetValue(string, newString->_value);
     
     return string;
 }
