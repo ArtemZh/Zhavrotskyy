@@ -180,7 +180,9 @@ uint8_t ZHHumanGetIndexOfChild(ZHHuman *human, ZHHuman *child) {
     for (uint8_t increment = 0; increment < kZHMaximumChildrenCount ; increment += 1) {
         if (__ZHHumanGetChildAtIndex(human, increment) != NULL) {
             trueIndex += 1;
-            return trueIndex == index;  //
+            if (trueIndex == index) {
+                break;
+            }
         }
     }
     

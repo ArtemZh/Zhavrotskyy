@@ -34,9 +34,9 @@ void ZHStringSetValue(ZHString *string, char *value) {
             }
             
             if (value) {
-                size_t fieldSize = ZHStringGetStringLenght(value)+1;
+                size_t fieldSize = strlen(value)+1;
                 string->_value = malloc(fieldSize);
-                memmove(string->_value, value, fieldSize);
+                memmove(string->_value, value, fieldSize); //strcpy
             }
         }
     }
@@ -52,8 +52,10 @@ char ZHStringGetString (ZHString *string) {
 }
 
 ZHString *ZHStringCopy(char *value) {
-    ZHString *string = ZHStringCreate();
-    ZHStringSetValue(string, value);
+    if (!value) {
+        return NULL;
+    }
+    
     
     return string;
 }
