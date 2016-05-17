@@ -15,13 +15,13 @@ void ZHStringSetValue(ZHString *string, char *value);
 
 
 void __ZHStringDeallocate(void *object) {
-
+    ZHStringSetValue(object, NULL);
     __ZHObjectDeallocate(object);
 }
 
-ZHString *ZHStringCreate(void) {
+ZHString *ZHStringCreate(char *value) {
     ZHString *string = ZHObjectCreateWithType(ZHString);
-    
+    ZHStringSetValue(string, value);
     return string;
 }
 
