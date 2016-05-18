@@ -15,6 +15,7 @@
 #include "ZHObject.h"
 
 
+
 typedef struct ZHArray ZHArray;
 
 struct ZHArray {
@@ -22,9 +23,13 @@ struct ZHArray {
     
     void **_data;
     
-    uint16_t _count;
-    uint16_t _capacity;
+    uint64_t _count;
+    uint64_t _capacity;
 };
 
+uint64_t ZHArrayGetCount(ZHArray *array);
+uint64_t ZHArrayGetCapacity(ZHArray *array);
+
+void *ZHArrayGetObjectAtIndex(ZHArray *array, uint64_t index);
 
 #endif /* ZHArray_h */

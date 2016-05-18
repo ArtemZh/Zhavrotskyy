@@ -148,7 +148,7 @@ void ZHHumanGetMarried(ZHHuman *human, ZHHuman *partner) {
 }
 
 uint8_t ZHHumanGetChildCount(ZHHuman *human){
-    return (!human) ? NULL : human->_childrenCount;
+    return (!human) ? 0 : human->_childrenCount;
 }
 
 ZHHuman *__ZHHumanGetChildAtIndex(ZHHuman *human, uint8_t index){

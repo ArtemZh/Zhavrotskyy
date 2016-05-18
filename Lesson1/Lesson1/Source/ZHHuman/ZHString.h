@@ -22,12 +22,12 @@ extern
 void __ZHStringDeallocate(void *object);
 
 extern
-ZHString *ZHStringCreate(void);
+ZHString *ZHStringCreate(char *value);
 
 extern
 size_t ZHStringGetStringLenght(char *string);
 
 extern
-ZHString *ZHStringCopy(ZHString *string, ZHString *newString);
+ZHString *ZHStringCopy(ZHString *string);
 
 #endif /* ZHString_h */

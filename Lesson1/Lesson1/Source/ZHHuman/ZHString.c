@@ -13,7 +13,6 @@
 static
 void ZHStringSetValue(ZHString *string, char *value);
 
-
 void __ZHStringDeallocate(void *object) {
     ZHStringSetValue(object, NULL);
     __ZHObjectDeallocate(object);
@@ -26,8 +25,7 @@ ZHString *ZHStringCreate(char *value) {
 }
 
 void ZHStringSetValue(ZHString *string, char *value) {
-    if (string) {
-        if (string->_value != value) {
+    if (string && string->_value != value) {
             if (string->_value) {
                 free(string->_value);
                 string->_value = NULL;
@@ -38,25 +36,24 @@ void ZHStringSetValue(ZHString *string, char *value) {
                 string->_value = malloc(fieldSize);
                 memmove(string->_value, value, fieldSize); //strcpy
             }
-        }
     }
     
 }
 
 size_t ZHStringGetStringLenght(char *string) {
-    return (!string) ? NULL : strlen(string);
+    return (!string) ? 0 : strlen(string);
 }
 
 char ZHStringGetString (ZHString *string) {
-    return (!string) ? NULL : string->_value;
+    return *((!string) ? NULL : string->_value); ///?
 }
 
-ZHString *ZHStringCopy(ZHString *string, ZHString *newString) {
-    if (!string && !newString) {
+ZHString *ZHStringCopy(ZHString *string) {
+    if (!string && !string->_value) {
         return NULL;
     }
     
-    ZHStringSetValue(string, newString->_value);
+    ZHStringCreate(string->_value);
     
     return string;
 }
