@@ -25,7 +25,7 @@ extern
 ZHString *ZHStringCreate(char *value);
 
 extern
-size_t ZHStringGetStringLenght(char *string);
+size_t ZHStringGetStringLength(char *string);
 
 extern
 ZHString *ZHStringCopy(ZHString *string);

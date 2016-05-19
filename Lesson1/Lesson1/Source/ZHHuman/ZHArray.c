@@ -11,13 +11,15 @@
 
 #include "ZHArray.h"
 
-//#define unless1(condition) \
+//#define ZHReturnValueIfCondition1(condition) \
 //    if(!(condition))
 
-#define unless(condition, value) \
-    if(!(condition)) { \
+#define ZHReturnValueIfCondition(condition, value) \
+    if ((condition)) { \
     return value; \
     }
+
+static const uint64_t kZHArrayIndexNotFound = UINT64_MAX;
 
 void __ZHArrayDeallocate(void *array) {
     /////
@@ -28,29 +30,67 @@ void __ZHArrayDeallocate(void *array) {
 ZHArray *ZHArrayCreateWithCapacity(uint64_t capacity) {
     ZHArray *array = ZHObjectCreateWithType(ZHArray);
     array->_capacity = capacity;
+    
     return array;
 }
 
 uint64_t ZHArrayGetCount(ZHArray *array) {
-    unless(array, 0); // ;?
+    ZHReturnValueIfCondition(!array, 0);
     
     return array->_count;
 }
 
 uint64_t ZHArrayGetCapacity(ZHArray *array) {
-    unless(array, 0);
+    ZHReturnValueIfCondition(!array, 0);
     
     return array->_capacity;
 }
 
 void *ZHArrayGetObjectAtIndex(ZHArray *array, uint64_t index) {
-    unless(array, NULL);
-    unless(ZHArrayGetCount(array), NULL);
+    ZHReturnValueIfCondition(array && ZHArrayGetCount(array), NULL);
     if (index>ZHArrayGetCapacity(array)) {
         return NULL;
     }
     
     return array->_data[index];
+}
+
+
+uint64_t __ZHArrayGetIndexOfObject(ZHArray *array, void *object) {
+    ZHReturnValueIfCondition(!array && !object , 0);
+    
+    uint64_t count = ZHArrayGetCount(array);
+    for (uint64_t index = 0; index < count; index += 1) {
+        ZHReturnValueIfCondition(ZHArrayGetObjectAtIndex(array, index), index)
+    }
+    
+    return kZHArrayIndexNotFound;
+}
+
+void ZHArrayCountSetValue(ZHArray *array, uint64_t value) {
+    ZHReturnValueIfCondition(!array, ); /// can this be?
+    
+    array->_count += value;
+}
+
+void ZHArraySetObjectAtIndex(ZHArray *array, void *object, uint64_t index){
+    ZHReturnValueIfCondition(!array, );
+    
+    ZHObject *oldObject = ZHArrayGetObjectAtIndex(array, index);
+    if (oldObject != object) {
+        ZHObjectRelease(array->_data[index]);
+        array->_data[index] = object;
+        ZHObjectRetain(object);
+    }
+
+}
+
+void ZHArrayAddObject(ZHArray *array, void *object){
+    ZHReturnValueIfCondition(!array, );
+    
+    uint64_t count = ZHArrayGetCount(array);
+    ZHArraySetObjectAtIndex(array, object, count);
+    ZHArrayCountSetValue(array, 1);
 }
 
 

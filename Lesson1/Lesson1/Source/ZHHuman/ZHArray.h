@@ -14,8 +14,6 @@
 
 #include "ZHObject.h"
 
-
-
 typedef struct ZHArray ZHArray;
 
 struct ZHArray {
