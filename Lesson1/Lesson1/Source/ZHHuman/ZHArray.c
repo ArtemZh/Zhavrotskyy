@@ -24,8 +24,7 @@
 static const uint64_t kZHArrayIndexNotFound = UINT64_MAX;
 
 void __ZHArrayDeallocate(void *array) {
-    /////
-    /////delete all object
+    ZHArrayRemoveAllObject(array);
     __ZHObjectDeallocate(array);
 }
 

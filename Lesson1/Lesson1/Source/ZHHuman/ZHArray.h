@@ -34,4 +34,6 @@ void ZHArrayResize(ZHArray *array);
 
 void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity);
 
+void ZHArrayRemoveAllObject(ZHArray *array);
+
 #endif /* ZHArray_h */
