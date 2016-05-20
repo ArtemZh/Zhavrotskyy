@@ -30,4 +30,8 @@ uint64_t ZHArrayGetCapacity(ZHArray *array);
 
 void *ZHArrayGetObjectAtIndex(ZHArray *array, uint64_t index);
 
+void ZHArrayResize(ZHArray *array);
+
+void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity);
+
 #endif /* ZHArray_h */

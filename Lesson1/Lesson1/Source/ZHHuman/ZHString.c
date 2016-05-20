@@ -33,7 +33,7 @@ void ZHStringSetValue(ZHString *string, char *value) {
             }
             
             if (value) {
-                size_t fieldSize = strlen(value)+ 1;
+                size_t fieldSize = strlen(value) + 1;
                 string->_value = malloc(fieldSize);
                 memmove(string->_value, value, fieldSize); //strcpy
             }
