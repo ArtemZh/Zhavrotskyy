@@ -25,15 +25,25 @@ struct ZHArray {
     uint64_t _capacity;
 };
 
+extern
+ZHArray *ZHArrayCreateWithCapacity(uint64_t capacity);
+
+extern
+void ZHArrayAddObject(ZHArray *array, void *object);
+
+extern
 uint64_t ZHArrayGetCount(ZHArray *array);
+
+extern
 uint64_t ZHArrayGetCapacity(ZHArray *array);
 
+extern
 void *ZHArrayGetObjectAtIndex(ZHArray *array, uint64_t index);
 
-void ZHArrayResize(ZHArray *array);
+extern
+uint64_t ZHArrayGetIndexOfObject(ZHArray *array, void *object);
 
-void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity);
-
-void ZHArrayRemoveAllObject(ZHArray *array);
+extern
+void ZHArraySetObjectAtIndex(ZHArray *array, void *object, uint64_t index);
 
 #endif /* ZHArray_h */

@@ -12,6 +12,8 @@
 		AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C41CB68C990039DBC2 /* ZHPrintTypesVariables.c */; };
 		AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1C71CB6C6EF0039DBC2 /* ZHRunAplication.c */; };
 		AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */ = {isa = PBXBuildFile; fileRef = AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */; };
+		AC2529211CF2E3310073DB49 /* ZHArrayTests.c in Sources */ = {isa = PBXBuildFile; fileRef = AC25291F1CF2E3310073DB49 /* ZHArrayTests.c */; };
+		AC2529241CF32D9A0073DB49 /* ZHTestRun.c in Sources */ = {isa = PBXBuildFile; fileRef = AC2529221CF32D9A0073DB49 /* ZHTestRun.c */; };
 		AC6796191CEA073C0035AD62 /* ZHString.c in Sources */ = {isa = PBXBuildFile; fileRef = AC6796171CEA073C0035AD62 /* ZHString.c */; };
 		ACCDF2021CD25497001E3E5D /* ZHObject.c in Sources */ = {isa = PBXBuildFile; fileRef = ACCDF2001CD25497001E3E5D /* ZHObject.c */; };
 		ACD15F5C1CC934AA00F7DADF /* ZHStructuresTest.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5A1CC934AA00F7DADF /* ZHStructuresTest.c */; };
@@ -45,6 +47,10 @@
 		AC03C1C81CB6C6EF0039DBC2 /* ZHRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRunAplication.h; sourceTree = "<group>"; };
 		AC03C1CA1CBA6F920039DBC2 /* ZHTask5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHTask5.c; sourceTree = "<group>"; };
 		AC03C1CB1CBA6F920039DBC2 /* ZHTask5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTask5.h; sourceTree = "<group>"; };
+		AC25291F1CF2E3310073DB49 /* ZHArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHArrayTests.c; sourceTree = "<group>"; };
+		AC2529201CF2E3310073DB49 /* ZHArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHArrayTests.h; sourceTree = "<group>"; };
+		AC2529221CF32D9A0073DB49 /* ZHTestRun.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHTestRun.c; sourceTree = "<group>"; };
+		AC2529231CF32D9A0073DB49 /* ZHTestRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTestRun.h; sourceTree = "<group>"; };
 		AC6796171CEA073C0035AD62 /* ZHString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHString.c; sourceTree = "<group>"; };
 		AC6796181CEA073C0035AD62 /* ZHString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHString.h; sourceTree = "<group>"; };
 		ACCDF2001CD25497001E3E5D /* ZHObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHObject.c; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				AC03C1B51CB680060039DBC2 /* Lesson1 */,
+				AC25291D1CF2E2FF0073DB49 /* Tests */,
 				AC03C1B41CB680060039DBC2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +116,25 @@
 				AC9EBD251CD2535000283F87 /* ZHHuman */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		AC25291D1CF2E2FF0073DB49 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AC25291E1CF2E2FF0073DB49 /* ZHArrayTests */,
+				AC2529221CF32D9A0073DB49 /* ZHTestRun.c */,
+				AC2529231CF32D9A0073DB49 /* ZHTestRun.h */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		AC25291E1CF2E2FF0073DB49 /* ZHArrayTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC25291F1CF2E3310073DB49 /* ZHArrayTests.c */,
+				AC2529201CF2E3310073DB49 /* ZHArrayTests.h */,
+			);
+			path = ZHArrayTests;
 			sourceTree = "<group>";
 		};
 		AC9EBD251CD2535000283F87 /* ZHHuman */ = {
@@ -212,11 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC03C1CC1CBA6F920039DBC2 /* ZHTask5.c in Sources */,
+				AC2529211CF2E3310073DB49 /* ZHArrayTests.c in Sources */,
 				ACF0BD3D1CCFC97E006506CF /* ZHHuman.c in Sources */,
 				ACD2FB841CC5104500F91886 /* ZHRunStrutureTask.c in Sources */,
 				ACD15F5C1CC934AA00F7DADF /* ZHStructuresTest.c in Sources */,
 				ACD2FB811CC50CB300F91886 /* ZHMacrosOutputFunction.c in Sources */,
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
+				AC2529241CF32D9A0073DB49 /* ZHTestRun.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */,
 				AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */,
 				AC6796191CEA073C0035AD62 /* ZHString.c in Sources */,

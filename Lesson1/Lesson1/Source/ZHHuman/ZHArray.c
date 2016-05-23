@@ -23,6 +23,24 @@
 
 static const uint64_t kZHArrayIndexNotFound = UINT64_MAX;
 
+static
+void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity);
+
+static
+void ZHArrayResize(ZHArray *array);
+
+static
+uint64_t ZHArrayPreferredCapacity(ZHArray *array);
+
+static
+void ZHArrayCountSetValue(ZHArray *array, uint64_t value);
+
+//static
+//void ZHArraySetObjectAtIndex(ZHArray *array, void *object, uint64_t index);
+
+static
+void ZHArrayRemoveAllObject(ZHArray *array);
+
 void __ZHArrayDeallocate(void *array) {
     ZHArrayRemoveAllObject(array);
     __ZHObjectDeallocate(array);
@@ -49,6 +67,7 @@ uint64_t ZHArrayGetCapacity(ZHArray *array) {
 
 void *ZHArrayGetObjectAtIndex(ZHArray *array, uint64_t index) {
     ZHReturnValueIfCondition(!array && !ZHArrayGetCount(array), NULL);
+    
     if (index > ZHArrayGetCapacity(array)) {
         return NULL;
     }
@@ -97,6 +116,7 @@ void ZHArrayAddObject(ZHArray *array, void *object){
 
 void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity) {
     ZHReturnValueIfCondition(!array, ZHEmpty);
+    
     uint64_t previousCapacity = ZHArrayGetCapacity(array);
     if (previousCapacity != newCapacity) {
         size_t size = newCapacity * sizeof(*array->_data);
@@ -113,7 +133,7 @@ void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity) {
             }
         }
         
-        array->_data = newCapacity;
+        array->_capacity = newCapacity;
     }
 }
 
@@ -153,16 +173,15 @@ void ZHArrayRemoveObjectAtIndex(ZHArray *array, uint64_t index) {
         memmove(&data[index], &data[index + 1], elementsCount * sizeof(*data));
     }
     
-    ZHArrayCountSetValue(array, - 1);
+    ZHArrayCountSetValue(array, -1);
 }
-
 
 void ZHArrayRemoveAllObject(ZHArray *array) {
     ZHReturnValueIfCondition(!array, ZHEmpty);
     
     uint64_t count = ZHArrayGetCount(array);
-    for (uint64_t index=0; index < count; index +=1) {
+    for (uint64_t index=0; index < count; index += 1) {
         ZHArraySetObjectAtIndex(array, NULL, index);
-        ZHArrayCountSetValue(array, - 1);
+        ZHArrayCountSetValue(array, -1);
     }
 }

@@ -13,9 +13,11 @@
 
 #include "ZHRunAplication.h"
 #include "ZHRunStrutureTask.h"
+#include "ZHTestRun.h"
 
 int main(int argc, const char * argv[]) {
   //  ZHRunAplication();
-  //r  ZHStructureTask();
+  //  ZHStructureTask();
+    ZHRunTest();
     return 0;
 }
