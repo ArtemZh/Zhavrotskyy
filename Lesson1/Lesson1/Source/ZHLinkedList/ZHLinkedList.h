@@ -21,9 +21,20 @@ struct ZHLinkedList {
     ZHObject _super;
     
     ZHLinkedListNode *_head;
-    uint64_t mutationCount;
+    uint64_t _mutationsCount;
     uint64_t count;
 };
+
+
+extern
+void *ZHLinkedListGetFirstObject(ZHLinkedList *list);
+
+extern
+void *ZHLikedListGetPreviousObject(ZHLinkedList *list, void *object);
+
+
+extern
+void *ZHLinkedListGetNextObject(ZHLinkedList *list, void *object);
 
 
 #endif /* ZHLinkedList_h */

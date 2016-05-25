@@ -14,12 +14,7 @@
 //#define ZHReturnValueIfCondition1(condition) \
 //    if(!(condition))
 
-#define ZHEmpty
 
-#define ZHReturnValueIfCondition(condition, value) \
-    if ((condition)) { \
-        return value; \
-    }
 
 static const uint64_t kZHArrayIndexNotFound = UINT64_MAX;
 
@@ -48,7 +43,7 @@ void __ZHArrayDeallocate(void *array) {
 
 ZHArray *ZHArrayCreateWithCapacity(uint64_t capacity) {
     ZHArray *array = ZHObjectCreateWithType(ZHArray);
-    array->_capacity = capacity;
+    ZHArraySetCapacity(array, capacity);
     
     return array;
 }

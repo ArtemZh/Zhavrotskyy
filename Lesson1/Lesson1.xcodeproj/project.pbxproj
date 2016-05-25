@@ -62,6 +62,7 @@
 		ACA9F77A1CF47BBC00CF425D /* ZHLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHLinkedListNode.h; sourceTree = "<group>"; };
 		ACA9F77C1CF4977200CF425D /* ZHLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHLinkedListEnumerator.c; sourceTree = "<group>"; };
 		ACA9F77D1CF4977200CF425D /* ZHLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHLinkedListEnumerator.h; sourceTree = "<group>"; };
+		ACA9F7821CF58EF300CF425D /* ZHLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHLinkedListPrivate.h; sourceTree = "<group>"; };
 		ACCDF2001CD25497001E3E5D /* ZHObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHObject.c; sourceTree = "<group>"; };
 		ACCDF2011CD25497001E3E5D /* ZHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHObject.h; sourceTree = "<group>"; };
 		ACD15F5A1CC934AA00F7DADF /* ZHStructuresTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHStructuresTest.c; path = ../../ZHStructureTask/ZHStructuresTest.c; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 				ACA9F7771CF47B6500CF425D /* ZHLinkedListNode */,
 				ACA9F7741CF46EA800CF425D /* ZHLinkedList.c */,
 				ACA9F7751CF46EA800CF425D /* ZHLinkedList.h */,
+				ACA9F7821CF58EF300CF425D /* ZHLinkedListPrivate.h */,
 			);
 			path = ZHLinkedList;
 			sourceTree = "<group>";

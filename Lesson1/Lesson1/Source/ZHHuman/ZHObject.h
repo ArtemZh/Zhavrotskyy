@@ -15,6 +15,23 @@
 #define ZHObjectCreateWithType(type) \
     __ZHObjectCreate(sizeof(type), (ZHObjectDeallocator)__##type##Deallocate)
 
+#define ZHObjectAssignSetter(object, field, value) \
+    if (object) { \
+    object->field = value; \
+    }
+
+#define ZHObjectRetainSetter(object, field, value) \
+    if (object && object->field != value) { \
+    ZHObjectRelease(object->field); \
+    object->field = ZHObjectRetain(value); \
+    }
+
+#define ZHEmpty
+
+#define ZHReturnValueIfCondition(condition, value) \
+if ((condition)) { \
+return value; \
+}
 
 typedef void (*ZHObjectDeallocator)(void *object);
 

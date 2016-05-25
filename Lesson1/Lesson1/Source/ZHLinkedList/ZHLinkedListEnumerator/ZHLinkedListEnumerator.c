@@ -11,6 +11,8 @@
 #include "ZHLinkedListEnumerator.h"
 #include "ZHLinkedList.h"
 #include "ZHLinkedListNode.h"
+#include "ZHLinkedListPrivate.h"
+#include "ZHObject.h"
 
 static
 void ZHLinkedListEnumeratorSetList(ZHLinkedListEnumerator *enumerator, ZHLinkedList *list);
@@ -41,7 +43,7 @@ void __ZHLinkedListEnumeratorDeallocate(void* object) {
 }
 
 ZHLinkedListEnumerator *ZHLinkedListEnumeratorCreateWithList(ZHLinkedList *list) {
-    assert(list);
+    ZHReturnValueIfCondition(!list, NULL);
     
     ZHLinkedListEnumerator * enumerator = ZHObjectCreateWithType(ZHLinkedListEnumerator);
     ZHLinkedListEnumeratorSetList(enumerator, list);
@@ -52,7 +54,7 @@ ZHLinkedListEnumerator *ZHLinkedListEnumeratorCreateWithList(ZHLinkedList *list)
 }
 
 void *ZHLinkedListEnumeratorGetNextObject(ZHLinkedListEnumerator *enumerator) {
-    assert(enumerator);
+    ZHReturnValueIfCondition(!enumerator, NULL);
     
     if (ZHLinkedListEnumeratorMutationsValidate(enumerator)) {
         ZHLinkedListNode *node = ZHLinkedListEnumeratorGetNode(enumerator);
@@ -77,47 +79,37 @@ void *ZHLinkedListEnumeratorGetNextObject(ZHLinkedListEnumerator *enumerator) {
 }
 
 bool ZHLinkedListEnumeratorIsValid(ZHLinkedListEnumerator *enumerator) {
-    assert(enumerator);
+    ZHReturnValueIfCondition(!enumerator, 0);
     
     return enumerator->_isValid;
 }
 
 void ZHLinkedListEnumeratorSetList(ZHLinkedListEnumerator *enumerator, ZHLinkedList *list) {
-    if (enumerator && enumerator->_list != list) {
-        ZHObjectRelease(enumerator);
-        
-        enumerator->_list = ZHObjectRetain(list);
-    }
+    ZHObjectRetainSetter(enumerator, _list, list);
 }
 
 ZHLinkedList *ZHLinkedListEnumeratorGetList(ZHLinkedListEnumerator *enumerator) {
-    assert(enumerator);
+    ZHReturnValueIfCondition(enumerator, 0);
     
     return enumerator->_list;
 }
 
 void ZHLinkedListEnumeratorSetNode(ZHLinkedListEnumerator *enumerator, ZHLinkedListNode *node) {
-    if (enumerator && enumerator->_node != node) {
-        ZHObjectRelease(enumerator);
-        
-        enumerator->_node = ZHObjectRetain(node);
-    }
+    ZHObjectRetainSetter(enumerator, _node, node);
 }
 
 ZHLinkedListNode *ZHLinkedListEnumeratorGetNode(ZHLinkedListEnumerator *enumerator) {
-    assert(enumerator);
+    ZHReturnValueIfCondition(!enumerator, 0);
     
     return enumerator->_node;
 }
 
 void ZHLinkedListEnumeratorSetMutationsCount(ZHLinkedListEnumerator *enumerator, uint64_t mutationsCount) {
-    if (enumerator) {
-        enumerator->_mutationsCount = mutationsCount;
-    }
+    ZHObjectAssignSetter(enumerator, _mutationsCount, mutationsCount)
 }
 
 uint64_t ZHLinkedListEnumeratorGetMutationsCount(ZHLinkedListEnumerator *enumerator) {
-    assert(enumerator);
+    ZHReturnValueIfCondition(!enumerator, 0);
     
     return enumerator->_mutationsCount;
 }

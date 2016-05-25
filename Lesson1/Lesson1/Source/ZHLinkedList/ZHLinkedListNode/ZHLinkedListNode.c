@@ -27,13 +27,13 @@ ZHLinkedListNode *ZHLinkedListNodeCreateWithObject(void *object) {
 }
 
 ZHLinkedListNode *ZHLinkedListNodeGetNextNode(ZHLinkedListNode *node) {
-    assert(node);
+    ZHReturnValueIfCondition(!node, NULL);
     
     return node->_nextNode;
 }
 
 void ZHLinkedListNodeSetNextNode(ZHLinkedListNode *node, ZHLinkedListNode *nextNode) {
-    assert(node);
+    ZHReturnValueIfCondition(!node, ZHEmpty);
     
     ZHLinkedListNode *previousNode = node->_nextNode;
     
@@ -45,13 +45,13 @@ void ZHLinkedListNodeSetNextNode(ZHLinkedListNode *node, ZHLinkedListNode *nextN
 }
 
 void *ZHLinkedListNodeGetObject(ZHLinkedListNode *node) {
-    assert(node);
+    ZHReturnValueIfCondition(!node, NULL);
     
     return  node->_object;
 }
 
 void ZHLinkedListNodeSetObject(ZHLinkedListNode *node, void *object) {
-    assert(node);
+    ZHReturnValueIfCondition(!node, ZHEmpty);
     
     ZHLinkedListNode *previousObject = node->_object;
     
