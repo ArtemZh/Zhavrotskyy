@@ -25,6 +25,8 @@ struct ZHLinkedList {
     uint64_t count;
 };
 
+extern
+void __ZHLinkedListDeallocate(void *object);
 
 extern
 void *ZHLinkedListGetFirstObject(ZHLinkedList *list);
@@ -32,9 +34,25 @@ void *ZHLinkedListGetFirstObject(ZHLinkedList *list);
 extern
 void *ZHLikedListGetPreviousObject(ZHLinkedList *list, void *object);
 
-
 extern
 void *ZHLinkedListGetNextObject(ZHLinkedList *list, void *object);
 
+extern
+void ZHLinkedListRemoveObject(ZHLinkedList *list, void *object);
+
+extern
+void ZHLinkedListRemoveAllObjects(ZHLinkedList *list);
+
+extern
+bool ZHLinkedListIsEmpty(ZHLinkedList *list);
+
+extern
+void ZHLinkedListAddObject(ZHLinkedList *list, void *object);
+
+extern
+bool ZHLinkedListContainsObject(ZHLinkedList *list, void *object);
+
+extern
+uint64_t ZHLinkedListGetCount(ZHLinkedList *list);
 
 #endif /* ZHLinkedList_h */

@@ -22,8 +22,8 @@ static
 void ZHLinkedListSetCount(ZHLinkedList *list, uint64_t value);
 
 
-void __ZHlinkedListDeallocate(void *object) {
-    //delete all
+void __ZHLinkedListDeallocate(void *object) {
+    ZHLinkedListSetCount(object, 0);
     
     __ZHObjectDeallocate(object);
 }
@@ -71,6 +71,61 @@ void *ZHLikedListGetPreviousObject(ZHLinkedList *list, void *object) {
     return previosObject;
 }
 
+void ZHLinkedListRemoveFirstObject(ZHLinkedList *list) {
+    ZHLinkedListNode *firstNode = ZHLinkedListGetHead(list);
+    ZHLinkedListNode *nextNode = ZHLinkedListNodeGetNextNode(firstNode);
+    
+    ZHLinkedListSetHead(list, nextNode);
+    ZHLinkedListCountAddValue(list,-1);
+}
+
+void ZHLinkedListRemoveObject(ZHLinkedList *list, void *object) {
+    ZHReturnValueIfCondition(!list, ZHEmpty);
+    
+    ZHLinkedListContext context = *ZHLinkedListContextCreateWithObject(object);
+    ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, &context);
+    if (node) {
+        ZHLinkedListNode *previousNode = context.previousNode;
+        ZHLinkedListNode *nexNode =  ZHLinkedListNodeGetNextNode(node);
+        ZHLinkedListNodeSetNextNode(previousNode, nexNode);
+        ZHLinkedListCountAddValue(list, -1);
+    }
+}
+
+void ZHLinkedListRemoveAllObjects(ZHLinkedList *list) {
+    ZHReturnValueIfCondition(!list, ZHEmpty);
+    
+    ZHLinkedListSetCount(list, 0);
+}
+
+bool ZHLinkedListIsEmpty(ZHLinkedList *list) {
+    ZHReturnValueIfCondition(!list, 0);
+    
+    return !ZHLinkedListGetHead(list);
+}
+
+uint64_t ZHLinkedListGetMutationsCount(ZHLinkedList *list) {
+    ZHReturnValueIfCondition(!list, 0);
+    
+    return list->_mutationsCount;
+}
+
+bool ZHLinkedListContainsObject(ZHLinkedList *list, void *object) {
+    ZHReturnValueIfCondition(!list, 0);
+    
+    ZHLinkedListContext *context = ZHLinkedListContextCreateWithObject(object);
+    ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, context);
+    bool value = node;
+    
+    return value;
+}
+
+
+void ZHLinkedListCountAddValue(ZHLinkedList *list, uint8_t value) {
+    ZHReturnValueIfCondition(!list, ZHEmpty);
+    
+    list->count += value;
+}
 
 void ZHLinkedListSetCount(ZHLinkedList *list, uint64_t value) {
     ZHReturnValueIfCondition(!list, ZHEmpty);
@@ -81,12 +136,6 @@ void ZHLinkedListSetCount(ZHLinkedList *list, uint64_t value) {
     
     list->count = value;
     ZHLinkedListMutationsCountAddValue(list, +1);
-}
-
-void ZHLinkedListCountAddValue(ZHLinkedList *list, uint8_t value) {
-    ZHReturnValueIfCondition(!list, ZHEmpty);
-    
-    list->count += value;
 }
 
 void ZHLinkedListSetHead(ZHLinkedList *list, ZHLinkedListNode *head) {
@@ -110,15 +159,54 @@ void ZHLinkedListMutationsCountAddValue(ZHLinkedList *list, uint64_t value) {
     ZHLinkedListSetMutationsCount(list, count += value);
 }
 
+ZHLinkedListNode *ZHLinkedListFindNodeWithContext(ZHLinkedList *list,
+                                                    ZHLinkedListNodeComparisonFunction comparator,
+                                                    ZHLinkedListContext *context) {
+    ZHLinkedListNode *result = NULL;
+    if (list) {
+        ZHLinkedListEnumerator *enumerator = ZHLinkedListEnumeratorCreateWithList(list);
+        while (ZHLinkedListEnumeratorIsValid(enumerator) && ZHLinkedListEnumeratorGetNextObject(enumerator))  {
+            ZHLinkedListNode *node = ZHLinkedListEnumeratorGetNode(enumerator);
+            
+            if (ZHLinkedListNodeContainsObject(node, context)) {
+                result = node;
+                break;
+            }
+        }
+        
+        ZHObjectRelease(enumerator);
+    }
+    
+    return result;
+}
 
+ZHLinkedListContext* ZHLinkedListContextCreateWithObject(void *object) {
+    ZHLinkedListContext *context = calloc(1, sizeof(*context));
+    context->object = object;
+    
+    return context;
+}
 
+ZHLinkedListContext *ZHLinkedListCreateContextFindNodeWithObject(ZHLinkedList *list, void *object) {
+    ZHLinkedListContext *context = ZHLinkedListContextCreateWithObject(object);
+    __unused ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, context);
+    
+    return context;
+}
 
-
-
-
-
-
-
-
+bool ZHLinkedListNodeContainsObject(ZHLinkedListNode *node, ZHLinkedListContext *context) {
+    bool result = false;
+    if (node) {
+        context->previousNode = context->node;
+        context->node = node;
+        
+        void *object = ZHLinkedListNodeGetObject(node);
+        if (context->object == object) {
+            result = true;
+        }
+    }
+    
+    return result;
+}
 
 
