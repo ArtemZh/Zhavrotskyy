@@ -60,15 +60,15 @@ void *ZHLinkedListGetNextObject(ZHLinkedList *list, void *object) {
 void *ZHLikedListGetPreviousObject(ZHLinkedList *list, void *object) {
     ZHReturnValueIfCondition(!list, NULL);
     
-    void *previosObject = NULL;
+    void *previousObject = NULL;
     ZHLinkedListContext *context = ZHLinkedListContextCreateWithObject(object);
     ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, context);
     if (node) {
         ZHLinkedListNode *node = context->previousNode;
-        previosObject = ZHLinkedListNodeGetObject(node);
+        previousObject = ZHLinkedListNodeGetObject(node);
     }
     
-    return previosObject;
+    return previousObject;
 }
 
 void ZHLinkedListRemoveFirstObject(ZHLinkedList *list) {
@@ -76,7 +76,7 @@ void ZHLinkedListRemoveFirstObject(ZHLinkedList *list) {
     ZHLinkedListNode *nextNode = ZHLinkedListNodeGetNextNode(firstNode);
     
     ZHLinkedListSetHead(list, nextNode);
-    ZHLinkedListCountAddValue(list,-1);
+    ZHLinkedListCountAddValue(list, -1);
 }
 
 void ZHLinkedListRemoveObject(ZHLinkedList *list, void *object) {
@@ -84,11 +84,16 @@ void ZHLinkedListRemoveObject(ZHLinkedList *list, void *object) {
     
     ZHLinkedListContext context = *ZHLinkedListContextCreateWithObject(object);
     ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, &context);
+    ZHLinkedListNode *head = ZHLinkedListGetHead(list);
     if (node) {
-        ZHLinkedListNode *previousNode = context.previousNode;
-        ZHLinkedListNode *nexNode =  ZHLinkedListNodeGetNextNode(node);
-        ZHLinkedListNodeSetNextNode(previousNode, nexNode);
-        ZHLinkedListCountAddValue(list, -1);
+        if (node == head){
+            ZHLinkedListSetHead(list, ZHLinkedListNodeGetNextNode(node));
+        } else {
+            ZHLinkedListNode *previousNode = context.previousNode;
+            ZHLinkedListNode *nexNode =  ZHLinkedListNodeGetNextNode(node);
+            ZHLinkedListNodeSetNextNode(previousNode, nexNode);
+            ZHLinkedListCountAddValue(list, -1);
+        }
     }
 }
 
@@ -115,9 +120,8 @@ bool ZHLinkedListContainsObject(ZHLinkedList *list, void *object) {
     
     ZHLinkedListContext *context = ZHLinkedListContextCreateWithObject(object);
     ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, context);
-    bool value = node;
     
-    return value;
+    return (bool)node;
 }
 
 
@@ -208,5 +212,4 @@ bool ZHLinkedListNodeContainsObject(ZHLinkedListNode *node, ZHLinkedListContext 
     
     return result;
 }
-
 
