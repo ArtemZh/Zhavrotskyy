@@ -33,8 +33,8 @@ void ZHArrayCountSetValue(ZHArray *array, uint64_t value);
 //static
 //void ZHArraySetObjectAtIndex(ZHArray *array, void *object, uint64_t index);
 
-static
-void ZHArrayRemoveAllObject(ZHArray *array);
+//static
+//void ZHArrayRemoveAllObject(ZHArray *array);
 
 void __ZHArrayDeallocate(void *array) {
     ZHArrayRemoveAllObject(array);
@@ -115,9 +115,11 @@ void ZHArraySetCapacity(ZHArray *array, uint64_t newCapacity) {
     uint64_t previousCapacity = ZHArrayGetCapacity(array);
     if (previousCapacity != newCapacity) {
         size_t size = newCapacity * sizeof(*array->_data);
-        if (size && array->_data) {
-            free(array->_data);
-            array->_data = NULL;
+        if (!size) {
+            if (array->_data) {
+                free(array->_data);
+                array->_data = NULL;
+            }
         } else {
             array->_data = realloc(array->_data, size);
             

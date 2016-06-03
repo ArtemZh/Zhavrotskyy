@@ -46,4 +46,10 @@ uint64_t ZHArrayGetIndexOfObject(ZHArray *array, void *object);
 extern
 void ZHArraySetObjectAtIndex(ZHArray *array, void *object, uint64_t index);
 
+extern
+void ZHArrayRemoveObjectAtIndex(ZHArray *array, uint64_t index);
+
+extern
+void ZHArrayRemoveAllObject(ZHArray *array);
+
 #endif /* ZHArray_h */
