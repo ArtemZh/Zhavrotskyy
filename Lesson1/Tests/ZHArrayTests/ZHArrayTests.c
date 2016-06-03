@@ -32,15 +32,18 @@ void ZHArrayTests() {
         ZHArrayAddObject(array, string);
         printf("capacity =%llu, count =%llu \n", ZHArrayGetCapacity(array), ZHArrayGetCount(array));
     }
-    
-    printf("Array Reference Count %llu", ZHObjectGetReferenceCount(array));
+    ZHObjectRetain(array);
+    printf("Array Reference Count %llu \n", ZHObjectGetReferenceCount(array));
+    ZHObjectRelease(array);
+    printf("Array Reference Count %llu \n", ZHObjectGetReferenceCount(array));
     
     for (int index = 0; index<=numberOfObjectRemove; index +=1) {
         ZHArrayRemoveObjectAtIndex(array, index);
         printf("capacity =%llu, count =%llu\n", ZHArrayGetCapacity(array), ZHArrayGetCount(array));
     }
-    ZHArrayRemoveAllObject(array);
-    printf("capacity =%llu, count =%llu after remove all objects \n", ZHArrayGetCapacity(array), ZHArrayGetCount(array));
+    //ZHArrayRemoveAllObject(array);
+    ZHObjectRelease(array);
+    printf("capacity =%llu, count =%llu after releas \n", ZHArrayGetCapacity(array), ZHArrayGetCount(array));
     
     printf("Array Reference Count %llu \n", ZHObjectGetReferenceCount(array));
 }
