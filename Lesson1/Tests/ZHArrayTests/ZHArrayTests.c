@@ -14,8 +14,8 @@
 #include "ZHString.h"
 #include "ZHHuman.h"
 
-static const int numberOfObject = 11;
-static const int numberOfObjectRemove = 7;
+static const int ZHObjectCount = 11;
+static const int ZHObjectCountRemove = 7;
 
 void ZHArrayTests() {
     puts("Start");
@@ -28,7 +28,7 @@ void ZHArrayTests() {
    // printf(" object \n", ZHArrayGetObjectAtIndex(array, 1));
     
    // ZHArraySetObjectAtIndex(array, string, 0);
-    for (int index = 0; index <= numberOfObject ; index += 1) {
+    for (int index = 0; index < ZHObjectCount ; index += 1) {
         ZHArrayAddObject(array, string);
         printf("capacity =%llu, count =%llu \n", ZHArrayGetCapacity(array), ZHArrayGetCount(array));
     }
@@ -37,7 +37,7 @@ void ZHArrayTests() {
     ZHObjectRelease(array);
     printf("Array Reference Count %llu \n", ZHObjectGetReferenceCount(array));
     
-    for (int index = 0; index<=numberOfObjectRemove; index +=1) {
+    for (int index = 0; index < ZHObjectCountRemove; index += 1) {
         ZHArrayRemoveObjectAtIndex(array, index);
         printf("capacity =%llu, count =%llu\n", ZHArrayGetCapacity(array), ZHArrayGetCount(array));
     }

@@ -19,6 +19,7 @@
 		ACA9F77B1CF47BBC00CF425D /* ZHLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = ACA9F7791CF47BBC00CF425D /* ZHLinkedListNode.c */; };
 		ACA9F77E1CF4977200CF425D /* ZHLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = ACA9F77C1CF4977200CF425D /* ZHLinkedListEnumerator.c */; };
 		ACCDF2021CD25497001E3E5D /* ZHObject.c in Sources */ = {isa = PBXBuildFile; fileRef = ACCDF2001CD25497001E3E5D /* ZHObject.c */; };
+		ACCFACDE1D05E65800942E92 /* ZHLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = ACCFACDC1D05E65800942E92 /* ZHLinkedListTest.c */; };
 		ACD15F5C1CC934AA00F7DADF /* ZHStructuresTest.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5A1CC934AA00F7DADF /* ZHStructuresTest.c */; };
 		ACD15F5F1CC937BF00F7DADF /* ZHPrintNumberFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */; };
 		ACD2FB811CC50CB300F91886 /* ZHMacrosOutputFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = ACD2FB7F1CC50CB300F91886 /* ZHMacrosOutputFunction.c */; };
@@ -65,6 +66,8 @@
 		ACA9F7821CF58EF300CF425D /* ZHLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHLinkedListPrivate.h; sourceTree = "<group>"; };
 		ACCDF2001CD25497001E3E5D /* ZHObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHObject.c; sourceTree = "<group>"; };
 		ACCDF2011CD25497001E3E5D /* ZHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHObject.h; sourceTree = "<group>"; };
+		ACCFACDC1D05E65800942E92 /* ZHLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHLinkedListTest.c; sourceTree = "<group>"; };
+		ACCFACDD1D05E65800942E92 /* ZHLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHLinkedListTest.h; sourceTree = "<group>"; };
 		ACD15F5A1CC934AA00F7DADF /* ZHStructuresTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ZHStructuresTest.c; path = ../../ZHStructureTask/ZHStructuresTest.c; sourceTree = "<group>"; };
 		ACD15F5B1CC934AA00F7DADF /* ZHRunStrutureTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZHRunStrutureTask.h; path = ../../ZHStructureTask/ZHRunStrutureTask.h; sourceTree = "<group>"; };
 		ACD15F5D1CC937BF00F7DADF /* ZHPrintNumberFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ZHPrintNumberFunction.c; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		AC25291D1CF2E2FF0073DB49 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ACCFACDB1D05E63500942E92 /* ZHLinkedListTest */,
 				AC25291E1CF2E2FF0073DB49 /* ZHArrayTests */,
 				AC2529221CF32D9A0073DB49 /* ZHTestRun.c */,
 				AC2529231CF32D9A0073DB49 /* ZHTestRun.h */,
@@ -205,6 +209,15 @@
 				ACA9F77D1CF4977200CF425D /* ZHLinkedListEnumerator.h */,
 			);
 			path = ZHLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
+		ACCFACDB1D05E63500942E92 /* ZHLinkedListTest */ = {
+			isa = PBXGroup;
+			children = (
+				ACCFACDC1D05E65800942E92 /* ZHLinkedListTest.c */,
+				ACCFACDD1D05E65800942E92 /* ZHLinkedListTest.h */,
+			);
+			path = ZHLinkedListTest;
 			sourceTree = "<group>";
 		};
 		ACD15F591CC9330800F7DADF /* ZHPrintFuntion */ = {
@@ -289,6 +302,7 @@
 				AC03C1B71CB680060039DBC2 /* main.c in Sources */,
 				AC2529241CF32D9A0073DB49 /* ZHTestRun.c in Sources */,
 				AC03C1C61CB68C990039DBC2 /* ZHPrintTypesVariables.c in Sources */,
+				ACCFACDE1D05E65800942E92 /* ZHLinkedListTest.c in Sources */,
 				AC03C1C91CB6C6EF0039DBC2 /* ZHRunAplication.c in Sources */,
 				AC6796191CEA073C0035AD62 /* ZHString.c in Sources */,
 				ACE1A7D51CEA4CC100FB1E03 /* ZHArray.c in Sources */,

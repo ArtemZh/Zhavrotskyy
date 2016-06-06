@@ -8,7 +8,9 @@
 
 #include "ZHTestRun.h"
 #include "ZHArrayTests.h"
+#include "ZHLinkedListTest.h"
 
 void ZHRunTest() {
     ZHArrayTests();
+    ZHLinkedListTest();
 }
