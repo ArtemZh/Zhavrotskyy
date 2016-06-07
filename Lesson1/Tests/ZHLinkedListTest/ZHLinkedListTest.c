@@ -33,11 +33,16 @@ void ZHLinkedListTest() {
     ZHString *String5 = ZHStringCreate("Test");
     ZHLinkedListAddObject(linkedList, String5);
 
-    printf("%llu \n", ZHLinkedListGetCount(linkedList));
+    printf("LinkedListGetCount %llu  \n", ZHLinkedListGetCount(linkedList));
     
     ZHObject *first = ZHLinkedListGetFirstObject(linkedList);
     ZHObject *second = ZHLikedListGetPreviousObject (linkedList, String2);
-    printf(" %s \n",first == second ? "good" :" error" );
+    
+    printf("%s \n", (ZHLinkedListContainsObject(linkedList, String2))? "Yes" :"No");
+    printf("A the first object is equal to the previous two? %s \n",first == second ? "Yes" :"No, error" );
+    
+    
+    
 }
 
 

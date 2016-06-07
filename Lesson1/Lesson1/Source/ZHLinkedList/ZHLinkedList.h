@@ -55,4 +55,7 @@ bool ZHLinkedListContainsObject(ZHLinkedList *list, void *object);
 extern
 uint64_t ZHLinkedListGetCount(ZHLinkedList *list);
 
+extern
+uint64_t ZHLinkedListGetCount(ZHLinkedList *list);
+
 #endif /* ZHLinkedList_h */

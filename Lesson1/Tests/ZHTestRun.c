@@ -11,6 +11,6 @@
 #include "ZHLinkedListTest.h"
 
 void ZHRunTest() {
-    ZHArrayTests();
+//    ZHArrayTests();
     ZHLinkedListTest();
 }
