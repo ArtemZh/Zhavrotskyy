@@ -226,7 +226,7 @@ ZHLinkedListContext* ZHLinkedListContextCreateWithObject(void *object) {
 
 ZHLinkedListContext *ZHLinkedListCreateContextFindNodeWithObject(ZHLinkedList *list, void *object) {
     ZHLinkedListContext *context = ZHLinkedListContextCreateWithObject(object);
-    __unused ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, context);
+    ZHLinkedListNode *node = ZHLinkedListFindNodeWithContext(list, ZHLinkedListNodeContainsObject, context);
     
     return context;
 }
