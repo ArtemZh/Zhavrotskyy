@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC18A4501D09D3CD001A9D81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC18A44F1D09D3CD001A9D81 /* main.m */; };
+		AC18A4581D0B2118001A9D81 /* ZHCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = AC18A4571D0B2118001A9D81 /* ZHCreature.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		AC18A44C1D09D3CD001A9D81 /* ZHObjectiveC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZHObjectiveC; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC18A44F1D09D3CD001A9D81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC18A4571D0B2118001A9D81 /* ZHCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCreature.m; sourceTree = "<group>"; };
+		AC18A4591D0B212F001A9D81 /* ZHCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHCreature.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +60,19 @@
 		AC18A44E1D09D3CD001A9D81 /* ZHObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
+				AC18A4561D0B1D29001A9D81 /* Source */,
 				AC18A44F1D09D3CD001A9D81 /* main.m */,
 			);
 			path = ZHObjectiveC;
+			sourceTree = "<group>";
+		};
+		AC18A4561D0B1D29001A9D81 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				AC18A4571D0B2118001A9D81 /* ZHCreature.m */,
+				AC18A4591D0B212F001A9D81 /* ZHCreature.h */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC18A4581D0B2118001A9D81 /* ZHCreature.m in Sources */,
 				AC18A4501D09D3CD001A9D81 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +223,7 @@
 		AC18A4541D09D3CD001A9D81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +231,7 @@
 		AC18A4551D09D3CD001A9D81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -239,6 +255,7 @@
 				AC18A4551D09D3CD001A9D81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
